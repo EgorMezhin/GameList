@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D01470872689F5C600F0B690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01470862689F5C600F0B690 /* AppDelegate.swift */; };
-		D014708B2689F5C600F0B690 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014708A2689F5C600F0B690 /* ViewController.swift */; };
+		D014708B2689F5C600F0B690 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014708A2689F5C600F0B690 /* MainViewController.swift */; };
 		D01470912689F5C600F0B690 /* GameList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D014708F2689F5C600F0B690 /* GameList.xcdatamodeld */; };
 		D01470932689F5CF00F0B690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D01470922689F5CF00F0B690 /* Assets.xcassets */; };
 		D01470962689F5CF00F0B690 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01470942689F5CF00F0B690 /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		D01470832689F5C600F0B690 /* GameList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01470862689F5C600F0B690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D014708A2689F5C600F0B690 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D014708A2689F5C600F0B690 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D01470902689F5C600F0B690 /* GameList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameList.xcdatamodel; sourceTree = "<group>"; };
 		D01470922689F5CF00F0B690 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D01470952689F5CF00F0B690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,11 +98,9 @@
 			isa = PBXGroup;
 			children = (
 				D01470862689F5C600F0B690 /* AppDelegate.swift */,
-				D014708A2689F5C600F0B690 /* ViewController.swift */,
-				D01470922689F5CF00F0B690 /* Assets.xcassets */,
-				D01470942689F5CF00F0B690 /* LaunchScreen.storyboard */,
-				D01470972689F5CF00F0B690 /* Info.plist */,
+				D014708A2689F5C600F0B690 /* MainViewController.swift */,
 				D014708F2689F5C600F0B690 /* GameList.xcdatamodeld */,
+				D025F5A326933BCB002E2383 /* Supporting Files */,
 			);
 			path = GameList;
 			sourceTree = "<group>";
@@ -123,6 +121,16 @@
 				D01470AD2689F5CF00F0B690 /* Info.plist */,
 			);
 			path = GameListUITests;
+			sourceTree = "<group>";
+		};
+		D025F5A326933BCB002E2383 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D01470972689F5CF00F0B690 /* Info.plist */,
+				D01470922689F5CF00F0B690 /* Assets.xcassets */,
+				D01470942689F5CF00F0B690 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,7 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D014708B2689F5C600F0B690 /* ViewController.swift in Sources */,
+				D014708B2689F5C600F0B690 /* MainViewController.swift in Sources */,
 				D01470872689F5C600F0B690 /* AppDelegate.swift in Sources */,
 				D01470912689F5C600F0B690 /* GameList.xcdatamodeld in Sources */,
 			);
@@ -426,7 +434,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YKJ7WX469T;
-				INFOPLIST_FILE = GameList/Info.plist;
+				INFOPLIST_FILE = "GameList/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -446,7 +454,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YKJ7WX469T;
-				INFOPLIST_FILE = GameList/Info.plist;
+				INFOPLIST_FILE = "GameList/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
