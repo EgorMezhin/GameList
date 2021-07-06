@@ -19,7 +19,7 @@ class SettingsCell: UITableViewCell {
     
     private func setConstraint() {
         NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             label.widthAnchor.constraint(equalToConstant: 300),
             label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),

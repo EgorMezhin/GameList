@@ -11,12 +11,11 @@ class MainViewController: UIViewController {
 
     private let tabBarCnt = UITabBarController()
     
-    // MARK:  - View controller lifecycle methods
+    // MARK:  - ViewСontroller lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
+       
         createTabBarController()
     }
     
@@ -24,17 +23,20 @@ class MainViewController: UIViewController {
     
     private func createTabBarController() {
         
-        let firstVc = UIViewController()
-        firstVc.view.backgroundColor = .cyan
-        firstVc.tabBarItem = UITabBarItem.init(
+        let firstVC = UIViewController()
+        firstVC.view.backgroundColor = .cyan
+        firstVC.title = Constants.VCTitle.first.rawValue
+
+        firstVC.tabBarItem = UITabBarItem.init(
             title: Constants.VCTitle.first.rawValue,
             image: UIImage(systemName: Constants.VCImage.first.rawValue),
             tag: 0
         )
         
-        let secondVc = UIViewController()
-        secondVc.view.backgroundColor = .green
-        secondVc.tabBarItem = UITabBarItem.init(
+        let secondVC = UIViewController()
+        secondVC.view.backgroundColor = .green
+        secondVC.title = Constants.VCTitle.second.rawValue
+        secondVC.tabBarItem = UITabBarItem.init(
             title: Constants.VCTitle.second.rawValue,
             image: UIImage(systemName: Constants.VCImage.second.rawValue),
             tag: 0
@@ -42,6 +44,8 @@ class MainViewController: UIViewController {
         
         let thirdVC = UIViewController()
         thirdVC.view.backgroundColor = .lightGray
+        
+        thirdVC.title = Constants.VCTitle.third.rawValue
         thirdVC.tabBarItem = UITabBarItem.init(
             title: Constants.VCTitle.third.rawValue,
             image: UIImage(systemName: Constants.VCImage.third.rawValue),
@@ -50,6 +54,7 @@ class MainViewController: UIViewController {
         
         let fourthVC = SettingsViewController()
         fourthVC.view.backgroundColor = .magenta
+        fourthVC.title = Constants.VCTitle.fourth.rawValue
         fourthVC.tabBarItem = UITabBarItem.init(
             title: Constants.VCTitle.fourth.rawValue,
             image: UIImage(systemName: Constants.VCImage.fourth.rawValue),
@@ -57,8 +62,8 @@ class MainViewController: UIViewController {
         )
         
         let controllerArray = [
-            firstVc,
-            secondVc,
+            firstVC,
+            secondVC,
             thirdVC,
             fourthVC,
         ]

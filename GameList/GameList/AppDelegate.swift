@@ -19,14 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = MainViewController()
         window?.makeKeyAndVisible()
         
-        
         return true
     }
-
-  
-    
-    
-    
 
     // MARK: - Core Data stack
 
@@ -72,6 +66,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
-

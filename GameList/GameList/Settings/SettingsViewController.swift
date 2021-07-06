@@ -29,6 +29,7 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         settingsTableView = UITableView(frame: CGRect(
                                             x: 0,
                                             y: 0,

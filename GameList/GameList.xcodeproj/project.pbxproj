@@ -19,6 +19,10 @@
 		D025F60F26946168002E2383 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F60E26946168002E2383 /* FeedbackViewController.swift */; };
 		D025F6142694617A002E2383 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F6132694617A002E2383 /* FeedbackModel.swift */; };
 		D025F6192694618B002E2383 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F6182694618B002E2383 /* FeedbackView.swift */; };
+		D025F62826949A75002E2383 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F62726949A75002E2383 /* PopularViewController.swift */; };
+		D025F62D26949A86002E2383 /* PopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F62C26949A86002E2383 /* PopularCell.swift */; };
+		D025F63226949AA5002E2383 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F63126949AA5002E2383 /* GamesViewController.swift */; };
+		D025F63A26949AFF002E2383 /* GamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F63926949AFF002E2383 /* GamesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		D025F60E26946168002E2383 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		D025F6132694617A002E2383 /* FeedbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
 		D025F6182694618B002E2383 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
+		D025F62726949A75002E2383 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
+		D025F62C26949A86002E2383 /* PopularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCell.swift; sourceTree = "<group>"; };
+		D025F63126949AA5002E2383 /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
+		D025F63926949AFF002E2383 /* GamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +177,8 @@
 		D025F61D26946479002E2383 /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				D025F63126949AA5002E2383 /* GamesViewController.swift */,
+				D025F63926949AFF002E2383 /* GamesCell.swift */,
 				D025F61F269464B2002E2383 /* New */,
 				D025F61E269464A8002E2383 /* Popular */,
 			);
@@ -178,6 +188,8 @@
 		D025F61E269464A8002E2383 /* Popular */ = {
 			isa = PBXGroup;
 			children = (
+				D025F62726949A75002E2383 /* PopularViewController.swift */,
+				D025F62C26949A86002E2383 /* PopularCell.swift */,
 			);
 			path = Popular;
 			sourceTree = "<group>";
@@ -328,8 +340,12 @@
 				D025F5B426934083002E2383 /* SettingsViewController.swift in Sources */,
 				D025F6192694618B002E2383 /* FeedbackView.swift in Sources */,
 				D014708B2689F5C600F0B690 /* MainViewController.swift in Sources */,
+				D025F62D26949A86002E2383 /* PopularCell.swift in Sources */,
+				D025F62826949A75002E2383 /* PopularViewController.swift in Sources */,
 				D025F60F26946168002E2383 /* FeedbackViewController.swift in Sources */,
 				D025F6142694617A002E2383 /* FeedbackModel.swift in Sources */,
+				D025F63A26949AFF002E2383 /* GamesCell.swift in Sources */,
+				D025F63226949AA5002E2383 /* GamesViewController.swift in Sources */,
 				D01470872689F5C600F0B690 /* AppDelegate.swift in Sources */,
 				D01470912689F5C600F0B690 /* GameList.xcdatamodeld in Sources */,
 				D025F5BF26936207002E2383 /* SettingsCell.swift in Sources */,
