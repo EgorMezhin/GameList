@@ -14,6 +14,11 @@
 		D01470962689F5CF00F0B690 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D01470942689F5CF00F0B690 /* LaunchScreen.storyboard */; };
 		D01470A12689F5CF00F0B690 /* GameListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01470A02689F5CF00F0B690 /* GameListTests.swift */; };
 		D01470AC2689F5CF00F0B690 /* GameListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01470AB2689F5CF00F0B690 /* GameListUITests.swift */; };
+		D025F5B426934083002E2383 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F5B326934083002E2383 /* SettingsViewController.swift */; };
+		D025F5BF26936207002E2383 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F5BE26936207002E2383 /* SettingsCell.swift */; };
+		D025F60F26946168002E2383 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F60E26946168002E2383 /* FeedbackViewController.swift */; };
+		D025F6142694617A002E2383 /* FeedbackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F6132694617A002E2383 /* FeedbackModel.swift */; };
+		D025F6192694618B002E2383 /* FeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F6182694618B002E2383 /* FeedbackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		D01470A72689F5CF00F0B690 /* GameListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01470AB2689F5CF00F0B690 /* GameListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListUITests.swift; sourceTree = "<group>"; };
 		D01470AD2689F5CF00F0B690 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D025F5B326934083002E2383 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D025F5BE26936207002E2383 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		D025F60E26946168002E2383 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		D025F6132694617A002E2383 /* FeedbackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackModel.swift; sourceTree = "<group>"; };
+		D025F6182694618B002E2383 /* FeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +109,11 @@
 			children = (
 				D01470862689F5C600F0B690 /* AppDelegate.swift */,
 				D014708A2689F5C600F0B690 /* MainViewController.swift */,
-				D014708F2689F5C600F0B690 /* GameList.xcdatamodeld */,
+				D025F62026946709002E2383 /* Library */,
+				D025F61D26946479002E2383 /* Games */,
+				D025F5B22693404E002E2383 /* Settings */,
 				D025F5A326933BCB002E2383 /* Supporting Files */,
+				D014708F2689F5C600F0B690 /* GameList.xcdatamodeld */,
 			);
 			path = GameList;
 			sourceTree = "<group>";
@@ -131,6 +144,56 @@
 				D01470942689F5CF00F0B690 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D025F5B22693404E002E2383 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D025F5B326934083002E2383 /* SettingsViewController.swift */,
+				D025F5BE26936207002E2383 /* SettingsCell.swift */,
+				D025F60D26946149002E2383 /* Feedback */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D025F60D26946149002E2383 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				D025F60E26946168002E2383 /* FeedbackViewController.swift */,
+				D025F6132694617A002E2383 /* FeedbackModel.swift */,
+				D025F6182694618B002E2383 /* FeedbackView.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		D025F61D26946479002E2383 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				D025F61F269464B2002E2383 /* New */,
+				D025F61E269464A8002E2383 /* Popular */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		D025F61E269464A8002E2383 /* Popular */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Popular;
+			sourceTree = "<group>";
+		};
+		D025F61F269464B2002E2383 /* New */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = New;
+			sourceTree = "<group>";
+		};
+		D025F62026946709002E2383 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +325,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D025F5B426934083002E2383 /* SettingsViewController.swift in Sources */,
+				D025F6192694618B002E2383 /* FeedbackView.swift in Sources */,
 				D014708B2689F5C600F0B690 /* MainViewController.swift in Sources */,
+				D025F60F26946168002E2383 /* FeedbackViewController.swift in Sources */,
+				D025F6142694617A002E2383 /* FeedbackModel.swift in Sources */,
 				D01470872689F5C600F0B690 /* AppDelegate.swift in Sources */,
 				D01470912689F5C600F0B690 /* GameList.xcdatamodeld in Sources */,
+				D025F5BF26936207002E2383 /* SettingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

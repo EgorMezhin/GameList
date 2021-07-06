@@ -15,7 +15,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
         createTabBarController()
     }
     
@@ -47,7 +48,7 @@ class MainViewController: UIViewController {
             tag: 0
         )
         
-        let fourthVC = UIViewController()
+        let fourthVC = SettingsViewController()
         fourthVC.view.backgroundColor = .magenta
         fourthVC.tabBarItem = UITabBarItem.init(
             title: Constants.VCTitle.fourth.rawValue,
@@ -68,10 +69,9 @@ class MainViewController: UIViewController {
         
         self.view.addSubview(tabBarCnt.view)
     }
-    
 }
 
-// MARK:  TabBarController customization struct
+// MARK: - TabBarController customization struct
 
 fileprivate struct Constants {
     
@@ -79,7 +79,7 @@ fileprivate struct Constants {
         case first = "Библиотека"
         case second = "Популярное"
         case third = "Новинки"
-        case fourth = "Ещё"
+        case fourth = "Настройки"
     }
     
     enum VCImage: String {
