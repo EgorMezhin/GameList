@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
             tag: 0
         )
         
-        let secondVC = UIViewController()
+        let secondVC = PopularViewController()
         secondVC.view.backgroundColor = .green
         secondVC.title = Constants.VCTitle.second.rawValue
         secondVC.tabBarItem = UITabBarItem.init(

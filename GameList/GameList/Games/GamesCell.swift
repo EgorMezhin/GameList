@@ -14,7 +14,7 @@ class GamesCell: UITableViewCell {
         let label = UILabel()
         label.text = "09"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = label.font.withSize(12)
+        label.font = label.font.withSize(18)
         return label
     }()
     
@@ -22,7 +22,7 @@ class GamesCell: UITableViewCell {
         let label = UILabel()
         label.text = "Июн"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = label.font.withSize(12)
+        label.font = label.font.withSize(18)
         return label
     }()
     
@@ -30,60 +30,94 @@ class GamesCell: UITableViewCell {
         let label = UILabel()
         label.text = "2077"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = label.font.withSize(10)
+        label.font = label.font.withSize(18)
         return label
     }()
     
     let gameLogoView: UIImageView = {
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = .gray
         return imageView
     }()
     
     let gameNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "PshePunk"
+        label.text = "PshePunka dlawfc azxcvfds dfv"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = label.font.withSize(14)
+        label.font = label.font.withSize(20)
         return label
     }()
     
-    let gameGenre: UILabel = {
+    let gameGenreLabel: UILabel = {
         let label = UILabel()
         label.text = "RPG"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = label.font.withSize(12)
+        label.font = label.font.withSize(18)
         return label
     }()
     
     let actionButton: UIButton = {
         let button = UIButton()
+        button.backgroundColor = .blue
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        contentView.addSubview(cityLabel)
-        contentView.addSubview(button)
+
+        addSubviews()
         setConstraint()
-    
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func addSubviews() {
+        contentView.addSubview(dayLabel)
+        contentView.addSubview(mounthLabel)
+        contentView.addSubview(yearLabel)
+        contentView.addSubview(gameLogoView)
+        contentView.addSubview(gameNameLabel)
+        contentView.addSubview(gameGenreLabel)
+        contentView.addSubview(actionButton)
+    }
+    
     func setConstraint() {
         NSLayoutConstraint.activate([
-            cityLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            cityLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            cityLabel.widthAnchor.constraint(equalToConstant: 150),
-            cityLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             
-            button.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            button.topAnchor.constraint(equalTo: cityLabel.topAnchor),
-            button.widthAnchor.constraint(equalToConstant: 40),
-            button.bottomAnchor.constraint(equalTo: cityLabel.bottomAnchor)
+            dayLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
+            dayLabel.bottomAnchor.constraint(equalTo: mounthLabel.topAnchor, constant: -10),
+            dayLabel.widthAnchor.constraint(equalToConstant: 30),
+            
+            mounthLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0),
+            mounthLabel.centerXAnchor.constraint(equalTo: dayLabel.centerXAnchor),
+            mounthLabel.widthAnchor.constraint(equalToConstant: 50),
+            
+            yearLabel.topAnchor.constraint(equalTo: mounthLabel.bottomAnchor, constant: 10),
+            yearLabel.centerXAnchor.constraint(equalTo: dayLabel.centerXAnchor),
+            yearLabel.widthAnchor.constraint(equalToConstant: 50),
+            
+            gameLogoView.leadingAnchor.constraint(equalTo: mounthLabel.trailingAnchor, constant: 20),
+            gameLogoView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
+            gameLogoView.widthAnchor.constraint(equalToConstant: 100),
+            
+            gameNameLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
+            gameNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -20),
+            gameNameLabel.widthAnchor.constraint(equalToConstant: 150),
+            
+            gameGenreLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
+            gameGenreLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 20),
+            gameGenreLabel.widthAnchor.constraint(equalToConstant: 150),
+            
+            actionButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            actionButton.heightAnchor.constraint(equalToConstant: 50),
+            actionButton.widthAnchor.constraint(equalToConstant: 50),
+            actionButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30)
+            
         ])
     }
 }
+
