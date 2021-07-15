@@ -7,10 +7,11 @@
 
 import UIKit
 
-
-
 class SettingsViewController: UIViewController {
 
+    var settingsTableView: UITableView!
+    let feedbackViewController = FeedbackViewController()
+    
     private struct Cell {
         var text: String
         var selectionBlock: (()->Void)?
@@ -18,23 +19,21 @@ class SettingsViewController: UIViewController {
     
     lazy private var cellArray: [Cell] = [
         Cell(text: "Оформление", selectionBlock: setAppereance),
-        Cell(text: "Оставить отзыв", selectionBlock: testFunc2),
-        Cell(text: "Поделиться", selectionBlock: testFunc2),
-        Cell(text: "Информация", selectionBlock: testFunc2),
-        Cell(text: "Выйти из учетной записи", selectionBlock: testFunc),
+        Cell(text: "Оставить отзыв", selectionBlock: goToFeedbackVC),
+        Cell(text: "Информация", selectionBlock: goToInformationVC),
+        Cell(text: "Выйти из учетной записи", selectionBlock: logOut),
     ]
 
-    var settingsTableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        settingsTableView = UITableView(frame: CGRect(
-                                            x: 0,
-                                            y: 0,
-                                            width: view.frame.width,
-                                            height: view.frame.height)
+        settingsTableView = UITableView(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: view.frame.width,
+                height: view.frame.height
+            )
         )
         
         settingsTableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
@@ -92,12 +91,19 @@ class SettingsViewController: UIViewController {
     
     
     
-    func testFunc() {
-        print("Оформляем")
+    func goToFeedbackVC() {
+        navigationController?.pushViewController(
+            feedbackViewController,
+            animated: true
+        )
     }
 
-    func testFunc2() {
-        print("Обратную связь нажали")
+    func goToInformationVC() {
+        
+    }
+    
+    func logOut() {
+        
     }
     
 }
@@ -111,9 +117,6 @@ extension SettingsViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //Force unwrap!!!!
-        //!!!!!
-        //!!!!!
         cellArray[indexPath.row].selectionBlock!()
     }
 }
