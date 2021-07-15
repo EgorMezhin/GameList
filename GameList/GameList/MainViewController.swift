@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
             tag: 0
         )
         
-        let thirdVC = UIViewController()
+        let thirdVC = NewGamesViewController()
         thirdVC.view.backgroundColor = .lightGray
         
         thirdVC.title = Constants.VCTitle.third.rawValue

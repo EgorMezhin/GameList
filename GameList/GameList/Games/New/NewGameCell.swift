@@ -7,51 +7,50 @@
 
 import UIKit
 
-class GamesCell: UITableViewCell {
-    
+class NewGameCell: UITableViewCell {
     
     let dayLabel: UILabel = {
         let label = UILabel()
-        label.text = "09"
+        label.text = "21"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = label.font.withSize(18)
         return label
     }()
     
     let mounthLabel: UILabel = {
         let label = UILabel()
         label.text = "Июн"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = label.font.withSize(18)
         return label
     }()
     
     let yearLabel: UILabel = {
         let label = UILabel()
         label.text = "2077"
+        label.font = label.font.withSize(16)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = label.font.withSize(18)
         return label
     }()
     
     let gameLogoView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .gray
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     let gameNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "PshePunka dlawfc azxcvfds dfv"
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "PshePunka dlawfc azx 2"
         label.font = label.font.withSize(20)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     let gameGenreLabel: UILabel = {
         let label = UILabel()
-        label.text = "RPG"
+        label.text = "RPG, Simulator, Strategy"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = label.font.withSize(18)
         return label
@@ -106,11 +105,11 @@ class GamesCell: UITableViewCell {
             
             gameNameLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             gameNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -20),
-            gameNameLabel.widthAnchor.constraint(equalToConstant: 150),
+            gameNameLabel.trailingAnchor.constraint(equalTo: actionButton.leadingAnchor, constant: -20),
             
             gameGenreLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             gameGenreLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 20),
-            gameGenreLabel.widthAnchor.constraint(equalToConstant: 150),
+            gameGenreLabel.trailingAnchor.constraint(equalTo: actionButton.leadingAnchor, constant: -20),
             
             actionButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             actionButton.heightAnchor.constraint(equalToConstant: 50),

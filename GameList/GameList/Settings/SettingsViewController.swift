@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController {
     }
     
     lazy private var cellArray: [Cell] = [
-        Cell(text: "Оформление", selectionBlock: testFunc),
+        Cell(text: "Оформление", selectionBlock: setAppereance),
         Cell(text: "Оставить отзыв", selectionBlock: testFunc2),
         Cell(text: "Поделиться", selectionBlock: testFunc2),
         Cell(text: "Информация", selectionBlock: testFunc2),
@@ -45,6 +45,52 @@ class SettingsViewController: UIViewController {
     }
     
     // MARK:  - Cell methods
+    
+    func setAppereance() {
+        
+        let appereanceAlert = UIAlertController(
+            title: "Выберите тему",
+            message: nil,
+            preferredStyle: .actionSheet
+        )
+
+        let firstAction = UIAlertAction(
+            title: "Светлая",
+            style: .default)
+            { (action: UIAlertAction) -> Void in
+            
+            print("Светлая тема")
+            
+            }
+        
+        let secondAction = UIAlertAction(
+            title: "Тёмная",
+            style: .default)
+            { (action: UIAlertAction) -> Void in
+            
+            print("Тёмная тема")
+            
+            }
+        
+        let cancelAction = UIAlertAction(
+            title: "Отмена",
+            style: .cancel
+        )
+        { action -> Void in
+            
+            print("Отмена")
+            
+        }
+        
+        appereanceAlert.addAction(firstAction)
+        appereanceAlert.addAction(secondAction)
+        appereanceAlert.addAction(cancelAction)
+        
+        present(appereanceAlert, animated: true)
+    }
+    
+    
+    
     
     func testFunc() {
         print("Оформляем")
@@ -87,3 +133,4 @@ extension SettingsViewController: UITableViewDataSource {
         return cell
     }
 }
+

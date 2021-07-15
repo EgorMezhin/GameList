@@ -22,7 +22,7 @@
 		D025F62826949A75002E2383 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F62726949A75002E2383 /* PopularViewController.swift */; };
 		D025F62D26949A86002E2383 /* PopularCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F62C26949A86002E2383 /* PopularCell.swift */; };
 		D025F63226949AA5002E2383 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F63126949AA5002E2383 /* GamesViewController.swift */; };
-		D025F63A26949AFF002E2383 /* GamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F63926949AFF002E2383 /* GamesCell.swift */; };
+		D025F63A26949AFF002E2383 /* NewGameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D025F63926949AFF002E2383 /* NewGameCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,7 @@
 		D025F62726949A75002E2383 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
 		D025F62C26949A86002E2383 /* PopularCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCell.swift; sourceTree = "<group>"; };
 		D025F63126949AA5002E2383 /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
-		D025F63926949AFF002E2383 /* GamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCell.swift; sourceTree = "<group>"; };
+		D025F63926949AFF002E2383 /* NewGameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				D025F63126949AA5002E2383 /* GamesViewController.swift */,
-				D025F63926949AFF002E2383 /* GamesCell.swift */,
+				D025F62726949A75002E2383 /* PopularViewController.swift */,
 				D025F61F269464B2002E2383 /* New */,
 				D025F61E269464A8002E2383 /* Popular */,
 			);
@@ -188,7 +188,6 @@
 		D025F61E269464A8002E2383 /* Popular */ = {
 			isa = PBXGroup;
 			children = (
-				D025F62726949A75002E2383 /* PopularViewController.swift */,
 				D025F62C26949A86002E2383 /* PopularCell.swift */,
 			);
 			path = Popular;
@@ -197,6 +196,7 @@
 		D025F61F269464B2002E2383 /* New */ = {
 			isa = PBXGroup;
 			children = (
+				D025F63926949AFF002E2383 /* NewGameCell.swift */,
 			);
 			path = New;
 			sourceTree = "<group>";
@@ -344,7 +344,7 @@
 				D025F62826949A75002E2383 /* PopularViewController.swift in Sources */,
 				D025F60F26946168002E2383 /* FeedbackViewController.swift in Sources */,
 				D025F6142694617A002E2383 /* FeedbackModel.swift in Sources */,
-				D025F63A26949AFF002E2383 /* GamesCell.swift in Sources */,
+				D025F63A26949AFF002E2383 /* NewGameCell.swift in Sources */,
 				D025F63226949AA5002E2383 /* GamesViewController.swift in Sources */,
 				D01470872689F5C600F0B690 /* AppDelegate.swift in Sources */,
 				D01470912689F5C600F0B690 /* GameList.xcdatamodeld in Sources */,

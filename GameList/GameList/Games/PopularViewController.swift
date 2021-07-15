@@ -22,7 +22,7 @@ class PopularViewController: UIViewController {
                                             height: view.frame.height)
         )
         
-        settingsTableView.register(GamesCell.self, forCellReuseIdentifier: "GamesCell")
+        settingsTableView.register(NewGameCell.self, forCellReuseIdentifier: "GamesCell")
         settingsTableView.dataSource = self
         settingsTableView.delegate = self
 
@@ -66,7 +66,7 @@ extension PopularViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GamesCell", for: indexPath) as! GamesCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GamesCell", for: indexPath) as! NewGameCell
 
 //        cell.label.text = cellArray[indexPath.row].text
 //        cell.selectionStyle = .none
