@@ -11,6 +11,7 @@ class SettingsViewController: UIViewController {
 
     var settingsTableView: UITableView!
     let feedbackViewController = FeedbackViewController()
+    let informationViewController = InformationViewController()
 
     private struct Cell {
         var text: String
@@ -20,7 +21,7 @@ class SettingsViewController: UIViewController {
     lazy private var cellArray: [Cell] = [
         Cell(text: "Оформление", selectionBlock: setAppereance),
         Cell(text: "Оставить отзыв", selectionBlock: goToFeedbackVC),
-        Cell(text: "Информация", selectionBlock: goToInformationVC),
+        Cell(text: "Разработчик", selectionBlock: goToInformationVC),
         Cell(text: "Выйти из учетной записи", selectionBlock: logOut)
     ]
 
@@ -94,6 +95,12 @@ class SettingsViewController: UIViewController {
 
     func goToInformationVC() {
 
+        
+        navigationController?.pushViewController(
+            informationViewController,
+            animated: true
+        )
+        
     }
 
     func logOut() {

@@ -23,53 +23,51 @@ class MainViewController: UIViewController {
 
     private func createTabBarController() {
 
-        let firstVC = UIViewController()
-        firstVC.view.backgroundColor = .cyan
-        firstVC.title = Constants.VCTitle.first.rawValue
-
-        firstVC.tabBarItem = UITabBarItem.init(
+        let libraryVC = UIViewController()
+        libraryVC.view.backgroundColor = .cyan
+        libraryVC.title = Constants.VCTitle.first.rawValue
+        libraryVC.tabBarItem = UITabBarItem.init(
             title: Constants.VCTitle.first.rawValue,
             image: UIImage(systemName: Constants.VCImage.first.rawValue),
             tag: 0
         )
 
-        let secondVC = PopularViewController()
-        secondVC.view.backgroundColor = .green
-        secondVC.title = Constants.VCTitle.second.rawValue
-        secondVC.tabBarItem = UITabBarItem.init(
+        let popularVC = PopularViewController()
+        popularVC.view.backgroundColor = .green
+        popularVC.title = Constants.VCTitle.second.rawValue
+        popularVC.tabBarItem = UITabBarItem.init(
             title: Constants.VCTitle.second.rawValue,
             image: UIImage(systemName: Constants.VCImage.second.rawValue),
             tag: 0
         )
 
-        let thirdVC = NewGamesViewController()
-        thirdVC.view.backgroundColor = .lightGray
-
-        thirdVC.title = Constants.VCTitle.third.rawValue
-        thirdVC.tabBarItem = UITabBarItem.init(
+        let newGamesVC = NewGamesViewController()
+        newGamesVC.view.backgroundColor = .lightGray
+        newGamesVC.title = Constants.VCTitle.third.rawValue
+        newGamesVC.tabBarItem = UITabBarItem.init(
             title: Constants.VCTitle.third.rawValue,
             image: UIImage(systemName: Constants.VCImage.third.rawValue),
             tag: 0
         )
 
-        let fourthVC = SettingsViewController()
-        fourthVC.view.backgroundColor = .magenta
-        fourthVC.title = Constants.VCTitle.fourth.rawValue
-        fourthVC.tabBarItem = UITabBarItem.init(
+        let settingsVC = SettingsViewController()
+        settingsVC.view.backgroundColor = .magenta
+        settingsVC.title = Constants.VCTitle.fourth.rawValue
+        settingsVC.tabBarItem = UITabBarItem.init(
             title: Constants.VCTitle.fourth.rawValue,
             image: UIImage(systemName: Constants.VCImage.fourth.rawValue),
             tag: 0
         )
 
-        let controllerArray = [
-            firstVC,
-            secondVC,
-            thirdVC,
-            fourthVC
+        let controllers = [
+            libraryVC,
+            popularVC,
+            newGamesVC,
+            settingsVC
         ]
 
-        tabBarCnt.viewControllers = controllerArray.map {
-            UINavigationController.init(rootViewController: $0)
+        tabBarCnt.viewControllers = controllers.map {
+            UINavigationController(rootViewController: $0)
         }
 
         self.view.addSubview(tabBarCnt.view)
