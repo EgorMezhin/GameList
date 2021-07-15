@@ -11,22 +11,22 @@ class SettingsViewController: UIViewController {
 
     var settingsTableView: UITableView!
     let feedbackViewController = FeedbackViewController()
-    
+
     private struct Cell {
         var text: String
-        var selectionBlock: (()->Void)?
+        var selectionBlock: (() -> Void)?
     }
-    
+
     lazy private var cellArray: [Cell] = [
         Cell(text: "Оформление", selectionBlock: setAppereance),
         Cell(text: "Оставить отзыв", selectionBlock: goToFeedbackVC),
         Cell(text: "Информация", selectionBlock: goToInformationVC),
-        Cell(text: "Выйти из учетной записи", selectionBlock: logOut),
+        Cell(text: "Выйти из учетной записи", selectionBlock: logOut)
     ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         settingsTableView = UITableView(
             frame: CGRect(
                 x: 0,
@@ -35,18 +35,18 @@ class SettingsViewController: UIViewController {
                 height: view.frame.height
             )
         )
-        
+
         settingsTableView.register(SettingsCell.self, forCellReuseIdentifier: "SettingsCell")
         settingsTableView.dataSource = self
         settingsTableView.delegate = self
 
         view.addSubview(settingsTableView)
     }
-    
-    // MARK:  - Cell methods
-    
+
+    // MARK: - Cell methods
+
     func setAppereance() {
-        
+
         let appereanceAlert = UIAlertController(
             title: "Выберите тему",
             message: nil,
@@ -55,42 +55,36 @@ class SettingsViewController: UIViewController {
 
         let firstAction = UIAlertAction(
             title: "Светлая",
-            style: .default)
-            { (action: UIAlertAction) -> Void in
-            
+            style: .default) { (_: UIAlertAction) -> Void in
+
             print("Светлая тема")
-            
+
             }
-        
+
         let secondAction = UIAlertAction(
             title: "Тёмная",
-            style: .default)
-            { (action: UIAlertAction) -> Void in
-            
+            style: .default) { (_: UIAlertAction) -> Void in
+
             print("Тёмная тема")
-            
+
             }
-        
+
         let cancelAction = UIAlertAction(
             title: "Отмена",
             style: .cancel
-        )
-        { action -> Void in
-            
+        ) { _ -> Void in
+
             print("Отмена")
-            
+
         }
-        
+
         appereanceAlert.addAction(firstAction)
         appereanceAlert.addAction(secondAction)
         appereanceAlert.addAction(cancelAction)
-        
+
         present(appereanceAlert, animated: true)
     }
-    
-    
-    
-    
+
     func goToFeedbackVC() {
         navigationController?.pushViewController(
             feedbackViewController,
@@ -99,41 +93,41 @@ class SettingsViewController: UIViewController {
     }
 
     func goToInformationVC() {
-        
+
     }
-    
+
     func logOut() {
-        
+
     }
-    
+
 }
 
-// MARK:  - UITableViewDelegate methods
+// MARK: - UITableViewDelegate methods
 
 extension SettingsViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         cellArray[indexPath.row].selectionBlock!()
     }
 }
 
-// MARK:  - UITableViewDataSource methods
+// MARK: - UITableViewDataSource methods
 
 extension SettingsViewController: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellArray.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsCell
-        cell.label.text = cellArray[indexPath.row].text
-        cell.selectionStyle = .none
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as? SettingsCell
+        guard let unwrappedCell = cell else { fatalError() }
+        unwrappedCell.label.text = cellArray[indexPath.row].text
+        unwrappedCell.selectionStyle = .none
+        return unwrappedCell
     }
 }
-

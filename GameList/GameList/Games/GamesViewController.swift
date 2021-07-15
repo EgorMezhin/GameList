@@ -10,26 +10,26 @@ import UIKit
 class NewGamesViewController: UIViewController {
 
     var settingsTableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         settingsTableView = UITableView(frame: CGRect(
                                             x: 0,
                                             y: 0,
                                             width: view.frame.width,
                                             height: view.frame.height)
         )
-        
+
         settingsTableView.register(PopularGameCell.self, forCellReuseIdentifier: "PopularGameCell")
         settingsTableView.dataSource = self
         settingsTableView.delegate = self
 
         view.addSubview(settingsTableView)
     }
-    
-    // MARK:  - Cell methods
-    
+
+    // MARK: - Cell methods
+
     func testFunc() {
         print("Оформляем")
     }
@@ -37,17 +37,17 @@ class NewGamesViewController: UIViewController {
     func testFunc2() {
         print("Обратную связь нажали")
     }
-    
+
 }
 
-// MARK:  - UITableViewDelegate methods
+// MARK: - UITableViewDelegate methods
 
 extension NewGamesViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
-    
+
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        //Force unwrap!!!!
 //        //!!!!!
@@ -56,19 +56,19 @@ extension NewGamesViewController: UITableViewDelegate {
 //    }
 }
 
-// MARK:  - UITableViewDataSource methods
+// MARK: - UITableViewDataSource methods
 
 extension NewGamesViewController: UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PopularGameCell", for: indexPath) as! PopularGameCell
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PopularGameCell", for: indexPath) as? PopularGameCell
+        guard let unwrappedCell = cell else {fatalError()}
 //        cell.label.text = cellArray[indexPath.row].text
 //        cell.selectionStyle = .none
-        return cell
+        return unwrappedCell
     }
 }

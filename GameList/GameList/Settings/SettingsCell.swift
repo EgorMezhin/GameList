@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsCell: UITableViewCell {
-    
+
     var label: UILabel = {
         let label = UILabel()
         label.text = "placeholder"
@@ -16,13 +16,13 @@ class SettingsCell: UITableViewCell {
         label.font = label.font.withSize(22)
         return label
     }()
-    
+
     private func setConstraint() {
         NSLayoutConstraint.activate([
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             label.widthAnchor.constraint(equalToConstant: 300),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ])
     }
 
@@ -31,7 +31,7 @@ class SettingsCell: UITableViewCell {
         contentView.addSubview(label)
         setConstraint()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

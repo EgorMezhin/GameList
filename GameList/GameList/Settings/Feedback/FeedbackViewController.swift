@@ -8,7 +8,7 @@
 import UIKit
 
 class FeedbackViewController: UIViewController {
-    
+
     var feedbackField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Место для вашего отзыва"
@@ -22,45 +22,45 @@ class FeedbackViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-    
+
     var feedbackButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .cyan
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.addSubview(feedbackField)
         view.addSubview(feedbackButton)
         setConstraint()
         feedbackField.delegate = self
         view.backgroundColor = .white
     }
-    
+
     func setConstraint() {
         NSLayoutConstraint.activate([
-            
+
             feedbackField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             feedbackField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             feedbackField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             feedbackField.heightAnchor.constraint(equalToConstant: 200),
-            
+
             feedbackButton.widthAnchor.constraint(equalTo: feedbackField.widthAnchor),
             feedbackButton.heightAnchor.constraint(equalToConstant: 40),
             feedbackButton.topAnchor.constraint(equalTo: feedbackField.bottomAnchor, constant: 20),
             feedbackButton.centerXAnchor.constraint(equalTo: feedbackField.centerXAnchor)
-            
+
         ])
     }
 }
 
-// MARK:  - UITextFieldDelegate methods
+// MARK: - UITextFieldDelegate methods
 
 extension FeedbackViewController: UITextFieldDelegate {
-    
+
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         // return NO to disallow editing.
         print("TextField should begin editing method called")
