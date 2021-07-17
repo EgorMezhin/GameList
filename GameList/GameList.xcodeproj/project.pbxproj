@@ -19,6 +19,7 @@
 		D012CBE326A3233D002E3742 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBE226A3233D002E3742 /* JSONParameterEncoder.swift */; };
 		D012CBE826A323F0002E3742 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBE726A323F0002E3742 /* NetworkRouter.swift */; };
 		D012CBED26A32458002E3742 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBEC26A32458002E3742 /* Router.swift */; };
+		D012CBF326A33667002E3742 /* GameEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBF226A33667002E3742 /* GameEndPoint.swift */; };
 		D01470872689F5C600F0B690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01470862689F5C600F0B690 /* AppDelegate.swift */; };
 		D014708B2689F5C600F0B690 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014708A2689F5C600F0B690 /* MainViewController.swift */; };
 		D01470912689F5C600F0B690 /* GameList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D014708F2689F5C600F0B690 /* GameList.xcdatamodeld */; };
@@ -67,6 +68,7 @@
 		D012CBE226A3233D002E3742 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		D012CBE726A323F0002E3742 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		D012CBEC26A32458002E3742 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		D012CBF226A33667002E3742 /* GameEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndPoint.swift; sourceTree = "<group>"; };
 		D01470832689F5C600F0B690 /* GameList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01470862689F5C600F0B690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D014708A2689F5C600F0B690 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		D012CBBD26A31E80002E3742 /* EndPoint */ = {
 			isa = PBXGroup;
 			children = (
+				D012CBF226A33667002E3742 /* GameEndPoint.swift */,
 			);
 			path = EndPoint;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				D012CBD926A32161002E3742 /* NetworkError.swift in Sources */,
 				D025F6142694617A002E2383 /* FeedbackModel.swift in Sources */,
 				D012CBDE26A321B7002E3742 /* URLParameterEncoder.swift in Sources */,
+				D012CBF326A33667002E3742 /* GameEndPoint.swift in Sources */,
 				D025F63A26949AFF002E2383 /* NewGameCell.swift in Sources */,
 				D025F63226949AA5002E2383 /* GamesViewController.swift in Sources */,
 				D012CBED26A32458002E3742 /* Router.swift in Sources */,

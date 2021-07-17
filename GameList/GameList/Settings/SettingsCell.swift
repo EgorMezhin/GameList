@@ -9,7 +9,7 @@ import UIKit
 
 class SettingsCell: UITableViewCell {
 
-    var label: UILabel = {
+    private var settingTitle: UILabel = {
         let label = UILabel()
         label.text = "placeholder"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -17,22 +17,30 @@ class SettingsCell: UITableViewCell {
         return label
     }()
 
-    private func setConstraint() {
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-            label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            label.widthAnchor.constraint(equalToConstant: 300),
-            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
-        ])
-    }
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(label)
+        selectionStyle = .none
+        contentView.addSubview(settingTitle)
         setConstraint()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension SettingsCell {
+    func configureCell(with title: String) {
+        settingTitle.text = title
+    }
+    
+    private func setConstraint() {
+        NSLayoutConstraint.activate([
+            settingTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
+            settingTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            settingTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+         //   settingTitle.widthAnchor.constraint(equalToConstant: 300),
+            settingTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
+        ])
     }
 }

@@ -74,7 +74,7 @@ class NewGameCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func addSubviews() {
+    private func addSubviews() {
         contentView.addSubview(dayLabel)
         contentView.addSubview(mounthLabel)
         contentView.addSubview(yearLabel)
