@@ -23,6 +23,8 @@
 		D012CC0726A457EE002E3742 /* NSObject+NameOfClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CC0626A457EE002E3742 /* NSObject+NameOfClass.swift */; };
 		D012CC0C26A45814002E3742 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CC0B26A45814002E3742 /* UITableView+Register.swift */; };
 		D012CC1126A45970002E3742 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CC1026A45970002E3742 /* NetworkManager.swift */; };
+		D012CC1926A5E16E002E3742 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CC1826A5E16E002E3742 /* UIButton.swift */; };
+		D012CC2626A608B9002E3742 /* InformationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CC2526A608B9002E3742 /* InformationViewDelegate.swift */; };
 		D01470872689F5C600F0B690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01470862689F5C600F0B690 /* AppDelegate.swift */; };
 		D014708B2689F5C600F0B690 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014708A2689F5C600F0B690 /* MainViewController.swift */; };
 		D01470912689F5C600F0B690 /* GameList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D014708F2689F5C600F0B690 /* GameList.xcdatamodeld */; };
@@ -75,6 +77,8 @@
 		D012CC0626A457EE002E3742 /* NSObject+NameOfClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+NameOfClass.swift"; sourceTree = "<group>"; };
 		D012CC0B26A45814002E3742 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
 		D012CC1026A45970002E3742 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D012CC1826A5E16E002E3742 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		D012CC2526A608B9002E3742 /* InformationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewDelegate.swift; sourceTree = "<group>"; };
 		D01470832689F5C600F0B690 /* GameList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01470862689F5C600F0B690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D014708A2689F5C600F0B690 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				D012CBA526A0597F002E3742 /* InformationViewController.swift */,
 				D012CBAA26A05993002E3742 /* InformationModel.swift */,
 				D012CBAF26A059A3002E3742 /* InformationView.swift */,
+				D012CC2526A608B9002E3742 /* InformationViewDelegate.swift */,
 			);
 			path = Information;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 			children = (
 				D012CC0626A457EE002E3742 /* NSObject+NameOfClass.swift */,
 				D012CC0B26A45814002E3742 /* UITableView+Register.swift */,
+				D012CC1826A5E16E002E3742 /* UIButton.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -462,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D012CC2626A608B9002E3742 /* InformationViewDelegate.swift in Sources */,
 				D012CC0C26A45814002E3742 /* UITableView+Register.swift in Sources */,
 				D012CBC226A31ECD002E3742 /* EndPointType.swift in Sources */,
 				D012CBB026A059A3002E3742 /* InformationView.swift in Sources */,
@@ -471,6 +478,7 @@
 				D012CBE326A3233D002E3742 /* JSONParameterEncoder.swift in Sources */,
 				D025F6192694618B002E2383 /* FeedbackView.swift in Sources */,
 				D014708B2689F5C600F0B690 /* MainViewController.swift in Sources */,
+				D012CC1926A5E16E002E3742 /* UIButton.swift in Sources */,
 				D025F62D26949A86002E2383 /* PopularCell.swift in Sources */,
 				D025F62826949A75002E2383 /* PopularViewController.swift in Sources */,
 				D025F60F26946168002E2383 /* FeedbackViewController.swift in Sources */,

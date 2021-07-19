@@ -8,42 +8,41 @@
 import UIKit
 
 final class SettingsViewController: UIViewController {
-
+    
     private lazy var feedbackViewController = FeedbackViewController()
     private lazy var informationViewController = InformationViewController()
     private lazy var userInfo: UIBarButtonItem = {
-       var barButtonItem = UIBarButtonItem(
-        image: UIImage(systemName: BarButtonItemImage.person.rawValue),
-        style: .plain,
-        target: self,
-        action: #selector(action(sender:))
-    )
+        var barButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: SystemImage.person.rawValue),
+            style: .plain,
+            target: self,
+            // TODO: change action name
+            action: #selector(action(sender:))
+        )
         return barButtonItem
     }()
     private lazy var settingsTableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(
-            SettingsCell.self,
-            forCellReuseIdentifier: CellIdentifier.settings.rawValue
-        )
+        // TODO: change other cells register func
+        tableView.registerCell(from: SettingsCell.self)
         return tableView
     }()
     private lazy var settings: [SettingModel] = [
         SettingModel(
             text: CellTitle.developerInfo.rawValue,
-            image: UIImage(systemName: "arrow.right"),
+            image: UIImage(systemName: SystemImage.rightArrow.rawValue),
             selectionBlock: showInformationVC
         ),
         SettingModel(
             text: CellTitle.feedback.rawValue,
-            image: UIImage(systemName: "arrow.right"),
+            image: UIImage(systemName: SystemImage.rightArrow.rawValue),
             selectionBlock: showFeedbackVC
         ),
         SettingModel(
             text: CellTitle.apiInfo.rawValue,
-            image: UIImage(systemName: "link"),
+            image: UIImage(systemName: SystemImage.link.rawValue),
             selectionBlock: showApiInfo
         )
     ]
@@ -66,11 +65,11 @@ extension SettingsViewController: UITableViewDelegate {
     ) -> CGFloat {
         return 50
     }
-
+    
     func tableView(
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
-        //Check result later
+        // TODO: check result later
     ) {
         settings[indexPath.row].selectionBlock?()
     }
@@ -78,21 +77,19 @@ extension SettingsViewController: UITableViewDelegate {
 
 // MARK: - UITableViewDataSource
 extension SettingsViewController: UITableViewDataSource {
-    func tableView(
-        _ tableView: UITableView,
-        numberOfRowsInSection section: Int
-    ) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return settings.count
     }
-
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: "SettingsCell",
-                for: indexPath
-        ) as? SettingsCell else { return UITableViewCell() }
+        // TODO: init other cells
+        guard let cell = tableView
+                .dequeueReusableCell(SettingsCell.self,
+                                     indexPath: indexPath)
+        else { return UITableViewCell() }
         cell.configureCell(
             title: settings[indexPath.row].text,
             image: settings[indexPath.row].image
@@ -116,7 +113,7 @@ extension SettingsViewController {
         )
     }
     private func showApiInfo() {
-        //Check url below
+        // TODO: Create global struct or enum for urls
         if let url = URL(string: "https://www.igdb.com/api") {
             UIApplication.shared.open(url)
         }
@@ -130,6 +127,7 @@ extension SettingsViewController {
     }
 }
 
+// TODO: Create new files for variables (Model)
 // MARK: - Variable Values
 extension SettingsViewController {
     private struct SettingModel {
@@ -137,18 +135,16 @@ extension SettingsViewController {
         var image: UIImage?
         var selectionBlock: (() -> Void)?
     }
-    //Check enum below
-    private enum BarButtonItemImage: String {
+    private enum SystemImage: String {
+        case link = "link"
         case person = "person.fill"
+        case rightArrow = "arrow.right"
     }
     private enum CellTitle: String {
-            case appereance = "Оформление"
-            case feedback = "Оставить отзыв"
-            case developerInfo = "О разработчике"
-            case apiInfo = "Подробнее про IGDB API"
-            case logOut = "Выйти из учетной записи"
-        }
-    private enum CellIdentifier: String {
-            case settings = "SettingsCell"
-        }
+        case apiInfo = "Подробнее про IGDB API"
+        case appereance = "Оформление"
+        case developerInfo = "О разработчике"
+        case feedback = "Оставить отзыв"
+        case logOut = "Выйти из учетной записи"
+    }
 }
