@@ -76,7 +76,7 @@ class MainViewController: UIViewController {
 
 // MARK: - TabBarController customization struct
 
-private struct Constants {
+fileprivate struct Constants {
 
     enum VCTitle: String {
         case first = "Библиотека"

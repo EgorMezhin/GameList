@@ -7,8 +7,8 @@
 
 import UIKit
 
-class InformationViewController: UIViewController {
-    var nameLabel: UILabel = {
+final class InformationViewController: UIViewController {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Егор Межин"
         label.translatesAutoresizingMaskIntoConstraints = false
