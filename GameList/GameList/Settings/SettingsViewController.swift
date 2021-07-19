@@ -33,14 +33,17 @@ final class SettingsViewController: UIViewController {
     private lazy var settings: [SettingModel] = [
         SettingModel(
             text: CellTitle.developerInfo.rawValue,
+            image: UIImage(systemName: "arrow.right"),
             selectionBlock: showInformationVC
         ),
         SettingModel(
             text: CellTitle.feedback.rawValue,
+            image: UIImage(systemName: "arrow.right"),
             selectionBlock: showFeedbackVC
         ),
         SettingModel(
             text: CellTitle.apiInfo.rawValue,
+            image: UIImage(systemName: "link"),
             selectionBlock: showApiInfo
         )
     ]
@@ -90,7 +93,10 @@ extension SettingsViewController: UITableViewDataSource {
                 withIdentifier: "SettingsCell",
                 for: indexPath
         ) as? SettingsCell else { return UITableViewCell() }
-        cell.configureCell(with: settings[indexPath.row].text)
+        cell.configureCell(
+            title: settings[indexPath.row].text,
+            image: settings[indexPath.row].image
+        )
         return cell
     }
 }
@@ -128,6 +134,7 @@ extension SettingsViewController {
 extension SettingsViewController {
     private struct SettingModel {
         var text: String
+        var image: UIImage?
         var selectionBlock: (() -> Void)?
     }
     //Check enum below

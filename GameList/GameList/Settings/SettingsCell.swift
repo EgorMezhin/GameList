@@ -7,20 +7,25 @@
 
 import UIKit
 
-class SettingsCell: UITableViewCell {
+final class SettingsCell: UITableViewCell {
 
-    private var settingTitle: UILabel = {
+    private lazy var settingTitle: UILabel = {
         let label = UILabel()
         label.text = "placeholder"
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = label.font.withSize(22)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    private lazy var settingImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-        contentView.addSubview(settingTitle)
+        setSubviews()
         setConstraint()
     }
 
@@ -30,17 +35,25 @@ class SettingsCell: UITableViewCell {
 }
 
 extension SettingsCell {
-    func configureCell(with title: String) {
+    func configureCell(title: String, image: UIImage?) {
         settingTitle.text = title
+        settingImage.image = image
     }
-    
+    private func setSubviews() {
+        contentView.addSubview(settingTitle)
+        contentView.addSubview(settingImage)
+    }
     private func setConstraint() {
         NSLayoutConstraint.activate([
             settingTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             settingTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
-            settingTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
-         //   settingTitle.widthAnchor.constraint(equalToConstant: 300),
-            settingTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
+            settingTitle.trailingAnchor.constraint(equalTo: settingImage.leadingAnchor, constant: -15),
+            settingTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            
+            settingImage.heightAnchor.constraint(equalToConstant: 20),
+            settingImage.widthAnchor.constraint(equalToConstant: 20),
+            settingImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            settingImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15)
         ])
     }
 }
