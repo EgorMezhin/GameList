@@ -8,9 +8,8 @@
 import UIKit
 
 final class InformationViewController: UIViewController {
-    
     private lazy var informationView: InformationView = {
-       let view = InformationView()
+        let view = InformationView()
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -26,7 +25,6 @@ extension InformationViewController {
     private func setupView() {
         view.backgroundColor = .white
         view.addSubview(informationView)
-        
         NSLayoutConstraint.activate([
             informationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             informationView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -34,20 +32,17 @@ extension InformationViewController {
             informationView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    private func setConstraints() {
-    }
 }
 
 // MARK: - InformationViewDelegate
 extension InformationViewController: InformationViewDelegate {
     func didTapGithubButton() {
-        if let url = URL(string: "https://github.com/EgorMezhin") {
+        if let url = URL(string: Website.github.rawValue) {
             UIApplication.shared.open(url)
         }
     }
-    
     func didTapTelegramButton() {
-        if let url = URL(string: "https://t.me/Egorlass") {
+        if let url = URL(string: Website.telegram.rawValue) {
             UIApplication.shared.open(url)
         }
     }

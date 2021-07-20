@@ -20,7 +20,7 @@ extension SettingsViewController {
         case rightArrow = "chevron.right"
     }
     enum CellTitle: String {
-        case apiInfo = "Подробнее про igdb.com API"
+        case apiInfo = "Подробнее про igdb API"
         case appereance = "Оформление"
         case developerInfo = "О разработчике"
         case feedback = "Оставить отзыв"

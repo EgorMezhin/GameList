@@ -11,15 +11,6 @@ final class SettingsViewController: UIViewController {
     
     private lazy var feedbackViewController = FeedbackViewController()
     private lazy var informationViewController = InformationViewController()
-    private lazy var userInfo: UIBarButtonItem = {
-        var barButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: SystemImage.person.rawValue),
-            style: .plain,
-            target: self,
-            action: #selector(showUserInfoVC(sender:))
-        )
-        return barButtonItem
-    }()
     private lazy var settingsTableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -48,7 +39,6 @@ final class SettingsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         settingsTableView.frame = view.bounds
-        self.navigationItem.rightBarButtonItem = userInfo
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,12 +93,5 @@ extension SettingsViewController {
         if let url = URL(string: "https://www.igdb.com/api") {
             UIApplication.shared.open(url)
         }
-    }
-}
-
-// MARK: - UIBarButtonItem Methods
-extension SettingsViewController {
-    @objc func showUserInfoVC(sender: UIBarButtonItem) {
-        // TODO: Add functionality
     }
 }
