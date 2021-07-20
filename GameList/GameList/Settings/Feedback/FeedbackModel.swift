@@ -5,4 +5,9 @@
 //  Created by Egor Lass on 06.07.2021.
 //
 
-import Foundation
+// MARK: - FeedbackView Variable Values
+extension FeedbackView {
+    var feedbackButtonTitle: String {
+        return "Отправить отзыв"
+    }
+}

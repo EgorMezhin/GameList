@@ -33,7 +33,7 @@ final class InformationView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    lazy var githubButton: UIButton = {
+    private lazy var githubButton: UIButton = {
         let button = UIButton()
         button.customize(withType: .bordered)
         button.setTitle(Title.github.rawValue, for: .normal)
@@ -41,7 +41,7 @@ final class InformationView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    lazy var telegramButton: UIButton = {
+    private lazy var telegramButton: UIButton = {
         let button = UIButton()
         button.customize(withType: .bordered)
         button.setTitle(Title.telegram.rawValue, for: .normal)

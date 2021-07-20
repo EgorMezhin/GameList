@@ -5,8 +5,6 @@
 //  Created by Egor Lass on 15.07.2021.
 //
 
-import UIKit
-
 // MARK: - InformationViewController Variable Values
 extension InformationViewController {
     enum Website: String {
