@@ -8,8 +8,7 @@
 import UIKit
 
 final class InformationView: UIView {
-    
-    var delegate: InformationViewDelegate?
+    weak var delegate: InformationViewDelegate?
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Егор Межин"
@@ -52,36 +51,35 @@ final class InformationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
+// MARK: - InformationViewDelegate Methods
 extension InformationView {
     @objc private func didTapGithubButton() {
         delegate?.didTapGithubButton()
     }
-    
     @objc private func didTapTelegramButton() {
         delegate?.didTapTelegramButton()
     }
+}
+
+// MARK: - Initialization
+extension InformationView {
     private func initialize() {
         addSubview(nameLabel)
         addSubview(photoView)
         addSubview(githubButton)
         addSubview(telegramButton)
-        
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             nameLabel.heightAnchor.constraint(equalToConstant: 50),
-            
             photoView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 40),
             photoView.centerXAnchor.constraint(equalTo: centerXAnchor),
             photoView.widthAnchor.constraint(equalToConstant: 200),
             photoView.heightAnchor.constraint(equalToConstant: 250),
-            
             githubButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             githubButton.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
             githubButton.topAnchor.constraint(equalTo: photoView.bottomAnchor, constant: 40),
             githubButton.heightAnchor.constraint(equalToConstant: 60),
-            
             telegramButton.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
             telegramButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             telegramButton.topAnchor.constraint(equalTo: githubButton.topAnchor),

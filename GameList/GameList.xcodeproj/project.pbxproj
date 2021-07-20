@@ -25,6 +25,8 @@
 		D012CC1126A45970002E3742 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CC1026A45970002E3742 /* NetworkManager.swift */; };
 		D012CC1926A5E16E002E3742 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CC1826A5E16E002E3742 /* UIButton.swift */; };
 		D012CC2626A608B9002E3742 /* InformationViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CC2526A608B9002E3742 /* InformationViewDelegate.swift */; };
+		D012CC2B26A72A3A002E3742 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CC2A26A72A3A002E3742 /* UIColor.swift */; };
+		D012CC3026A72C00002E3742 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CC2F26A72C00002E3742 /* SettingsModel.swift */; };
 		D01470872689F5C600F0B690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01470862689F5C600F0B690 /* AppDelegate.swift */; };
 		D014708B2689F5C600F0B690 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014708A2689F5C600F0B690 /* MainViewController.swift */; };
 		D01470912689F5C600F0B690 /* GameList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D014708F2689F5C600F0B690 /* GameList.xcdatamodeld */; };
@@ -79,6 +81,8 @@
 		D012CC1026A45970002E3742 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D012CC1826A5E16E002E3742 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		D012CC2526A608B9002E3742 /* InformationViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewDelegate.swift; sourceTree = "<group>"; };
+		D012CC2A26A72A3A002E3742 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		D012CC2F26A72C00002E3742 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		D01470832689F5C600F0B690 /* GameList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D01470862689F5C600F0B690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D014708A2689F5C600F0B690 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 				D012CC0626A457EE002E3742 /* NSObject+NameOfClass.swift */,
 				D012CC0B26A45814002E3742 /* UITableView+Register.swift */,
 				D012CC1826A5E16E002E3742 /* UIButton.swift */,
+				D012CC2A26A72A3A002E3742 /* UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				D025F5B326934083002E2383 /* SettingsViewController.swift */,
+				D012CC2F26A72C00002E3742 /* SettingsModel.swift */,
 				D025F5BE26936207002E2383 /* SettingsCell.swift */,
 				D012CBA426A05948002E3742 /* Information */,
 				D025F60D26946149002E2383 /* Feedback */,
@@ -484,11 +490,13 @@
 				D025F60F26946168002E2383 /* FeedbackViewController.swift in Sources */,
 				D012CBD926A32161002E3742 /* NetworkError.swift in Sources */,
 				D025F6142694617A002E2383 /* FeedbackModel.swift in Sources */,
+				D012CC3026A72C00002E3742 /* SettingsModel.swift in Sources */,
 				D012CBDE26A321B7002E3742 /* URLParameterEncoder.swift in Sources */,
 				D012CBF326A33667002E3742 /* GameEndPoint.swift in Sources */,
 				D025F63A26949AFF002E2383 /* NewGameCell.swift in Sources */,
 				D025F63226949AA5002E2383 /* GamesViewController.swift in Sources */,
 				D012CBED26A32458002E3742 /* Router.swift in Sources */,
+				D012CC2B26A72A3A002E3742 /* UIColor.swift in Sources */,
 				D012CBCF26A3200A002E3742 /* HTTPTask.swift in Sources */,
 				D012CBCA26A31F9B002E3742 /* HTTPMethod.swift in Sources */,
 				D012CBD426A320C8002E3742 /* ParameterEncoding.swift in Sources */,

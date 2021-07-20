@@ -12,13 +12,12 @@ extension UIButton {
         switch type {
         case .bordered:
             setTitleColor(.black, for: .normal)
-            layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
-            layer.borderWidth = 3
+            layer.borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0).cgColor
+            layer.borderWidth = 1
             layer.cornerRadius = 10
             layer.masksToBounds = true
         }
     }
-    
     enum CustomizeButtonType {
         case bordered
     }

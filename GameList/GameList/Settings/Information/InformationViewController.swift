@@ -8,7 +8,7 @@
 import UIKit
 
 final class InformationViewController: UIViewController {
-
+    
     private lazy var informationView: InformationView = {
        let view = InformationView()
         view.delegate = self
@@ -38,7 +38,7 @@ extension InformationViewController {
     }
 }
 
-// MARK:  - InformationViewDelegate
+// MARK: - InformationViewDelegate
 extension InformationViewController: InformationViewDelegate {
     func didTapGithubButton() {
         if let url = URL(string: "https://github.com/EgorMezhin") {
