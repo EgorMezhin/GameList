@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PopularGameCell: UITableViewCell {
+class DetailedGameCell: UITableViewCell {
 
     let dateLabel: UILabel = {
         let label = UILabel()
