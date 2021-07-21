@@ -9,47 +9,38 @@ import UIKit
 
 class DetailedGameCell: UITableViewCell {
 
-    let dateLabel: UILabel = {
-        let label = UILabel()
-        label.text = "21.04.2004"
-        label.font = UIFont.systemFont(ofSize: 18)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
     let gameLogoView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .gray
+        imageView.image = UIImage(named: "testGameLogoOne")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     let gameNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "PshePunka dlawfc azx 2"
-        label.font = label.font.withSize(20)
+        label.text = "Gothic"
+        label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     let gameGenreLabel: UILabel = {
         let label = UILabel()
-        label.text = "RPG, Simulator, Strategy"
-        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "RPG, Action"
         label.font = label.font.withSize(18)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
-    let actionButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .blue
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    let dateLabel: UILabel = {
+        let label = UILabel()
+        label.text = "15.03.2001"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
         addSubviews()
         setConstraint()
     }
@@ -57,38 +48,38 @@ class DetailedGameCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
 
+// MARK: - DetailedGameCell methods
+extension DetailedGameCell {
+    
     func addSubviews() {
         contentView.addSubview(dateLabel)
         contentView.addSubview(gameLogoView)
         contentView.addSubview(gameNameLabel)
         contentView.addSubview(gameGenreLabel)
-        contentView.addSubview(actionButton)
     }
 
     func setConstraint() {
         NSLayoutConstraint.activate([
 
-//            dayLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
-//            dayLabel.bottomAnchor.constraint(equalTo: mounthLabel.topAnchor, constant: -10),
-//            dayLabel.widthAnchor.constraint(equalToConstant: 30),
-
-            gameLogoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            gameLogoView.heightAnchor.constraint(equalTo: contentView.heightAnchor),
-            gameLogoView.widthAnchor.constraint(equalToConstant: 100),
+            gameLogoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            gameLogoView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            gameLogoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            gameLogoView.widthAnchor.constraint(equalToConstant: 70),
 
             gameNameLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
-            gameNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -20),
-            gameNameLabel.trailingAnchor.constraint(equalTo: actionButton.leadingAnchor, constant: -20),
-
+            gameNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            gameNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+        
             gameGenreLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
-            gameGenreLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 20),
-            gameGenreLabel.trailingAnchor.constraint(equalTo: actionButton.leadingAnchor, constant: -20),
+            gameGenreLabel.topAnchor.constraint(equalTo: gameNameLabel.bottomAnchor, constant: 10),
+            gameGenreLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            
+            dateLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
+            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
 
-            actionButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            actionButton.heightAnchor.constraint(equalToConstant: 50),
-            actionButton.widthAnchor.constraint(equalToConstant: 50),
-            actionButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30)
 
         ])
     }

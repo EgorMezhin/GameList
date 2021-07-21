@@ -47,7 +47,7 @@ class GamesViewController: UIViewController {
 extension GamesViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return 100
     }
 
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
