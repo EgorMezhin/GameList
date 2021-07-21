@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: new name for MARK?
 // MARK: - MainViewController Variable Values
 extension MainViewController {
     enum VCTitle: String {
@@ -15,6 +16,7 @@ extension MainViewController {
         case search = "Поиск"
         case settings = "Настройки"
     }
+    
     enum VCImage: String {
         case chartBar = "chart.bar.fill"
         case gamecontroller = "gamecontroller.fill"

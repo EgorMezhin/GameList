@@ -7,6 +7,6 @@
 
 import UIKit
 
-class GameViewController: UIViewController{
-    
+class GameViewController: UIViewController {
+
 }

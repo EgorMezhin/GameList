@@ -8,7 +8,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
+
     private let tabBarCnt = UITabBarController()
 
     // MARK: - ViewСontroller lifecycle methods
@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
         configureTabBarController()
     }
 
-    // MARK: - TabBarController customization methods
+    // MARK: - TabBarController configuration methods
     private func configureTabBarController() {
         let libraryVC = LibraryViewController()
         libraryVC.title = VCTitle.library.rawValue

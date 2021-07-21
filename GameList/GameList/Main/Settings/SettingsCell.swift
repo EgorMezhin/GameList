@@ -20,6 +20,8 @@ final class SettingsCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+
+    // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -31,16 +33,18 @@ final class SettingsCell: UITableViewCell {
     }
 }
 
-// MARK: - SettingsCell Methods
+// MARK: - SettingsCell methods
 extension SettingsCell {
     func configureCell(title: String, image: UIImage?) {
         settingTitle.text = title
         settingImage.image = image
     }
+
     private func setSubviews() {
         contentView.addSubview(settingTitle)
         contentView.addSubview(settingImage)
     }
+
     private func setConstraints() {
         NSLayoutConstraint.activate([
             settingTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),

@@ -10,7 +10,7 @@ import XCTest
 class GameListUITests: XCTestCase {
 
     override func setUpWithError() throws {
-    
+
         continueAfterFailure = false
 
     }

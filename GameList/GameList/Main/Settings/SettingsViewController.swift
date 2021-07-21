@@ -8,7 +8,6 @@
 import UIKit
 
 final class SettingsViewController: UIViewController {
-    
     private lazy var feedbackViewController = FeedbackViewController()
     private lazy var informationViewController = InformationViewController()
     private lazy var settingsTableView: UITableView = {
@@ -36,10 +35,13 @@ final class SettingsViewController: UIViewController {
             selectionBlock: showApiInfo
         )
     ]
+
+    // MARK: - SettingsViewController lifecycle methods
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         settingsTableView.frame = view.bounds
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(settingsTableView)
@@ -51,6 +53,7 @@ extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         settings[indexPath.row].selectionBlock?()
     }
@@ -61,6 +64,7 @@ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settings.count
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // TODO: init other cells
         guard let cell = tableView.dequeueReusableCell(SettingsCell.self, indexPath: indexPath) else {
@@ -74,7 +78,7 @@ extension SettingsViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - Cell Methods
+// MARK: - Cell methods
 extension SettingsViewController {
     private func showFeedbackVC() {
         navigationController?.pushViewController(
@@ -82,12 +86,14 @@ extension SettingsViewController {
             animated: true
         )
     }
+
     private func showInformationVC() {
         navigationController?.pushViewController(
             informationViewController,
             animated: true
         )
     }
+
     private func showApiInfo() {
         // TODO: Create global struct or enum for urls
         if let url = URL(string: "https://www.igdb.com/api") {

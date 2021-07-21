@@ -52,7 +52,7 @@ class DetailedGameCell: UITableViewCell {
 
 // MARK: - DetailedGameCell methods
 extension DetailedGameCell {
-    
+
     func addSubviews() {
         contentView.addSubview(dateLabel)
         contentView.addSubview(gameLogoView)
@@ -71,15 +71,14 @@ extension DetailedGameCell {
             gameNameLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             gameNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             gameNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-        
+
             gameGenreLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             gameGenreLabel.topAnchor.constraint(equalTo: gameNameLabel.bottomAnchor, constant: 10),
             gameGenreLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
+
             dateLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
-
 
         ])
     }

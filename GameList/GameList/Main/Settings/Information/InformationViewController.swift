@@ -14,13 +14,15 @@ final class InformationViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+
+    // MARK: - InformationViewController lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
 }
 
-// MARK: - InformationViewController Methods
+// MARK: - InformationViewController methods
 extension InformationViewController {
     private func setupView() {
         view.backgroundColor = .white

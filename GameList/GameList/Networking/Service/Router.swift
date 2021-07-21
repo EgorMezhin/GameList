@@ -9,7 +9,7 @@ import Foundation
 
 class Router<EndPoint: EndPointType>: NetworkRouter {
     private var task: URLSessionTask?
-    
+
     func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
         let session = URLSession.shared
         do {
@@ -22,9 +22,9 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         }
         self.task?.resume()
     }
-    
+
     fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
-        
+
         var request = URLRequest(
             url: route.baseurl.appendingPathComponent(route.path),
                       cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
@@ -34,11 +34,11 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             switch route.task {
             case .request:
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                
+
             case .requestParameters(
                  let bodyParameters,
                  let urlParameters):
-                
+
                 try self.configureParameters(
                     bodyParameters: bodyParameters,
                     urlParameters: urlParameters,
@@ -51,14 +51,14 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             ):
                 self.addAdditionalHeaders(additionalHeaders, request: &request)
                 try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
-            
+
             }
             return request
         } catch {
             throw error
         }
     }
-    
+
     fileprivate func configureParameters(
                      bodyParameters: Parameters?,
                      urlParameters: Parameters?,
@@ -74,7 +74,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             throw error
         }
     }
-    
+
     func addAdditionalHeaders(_ additionalHeaders: HTTPHeaders?, request: inout URLRequest) {
         guard let headers = additionalHeaders else { return }
         for (key, value) in headers {
@@ -85,6 +85,5 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     func cancel() {
         self.task?.cancel()
     }
-    
-}
 
+}

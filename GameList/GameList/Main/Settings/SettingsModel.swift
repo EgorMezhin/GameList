@@ -6,19 +6,21 @@
 //
 
 import UIKit
-
+// TODO: think about new MARK name
 // MARK: - Variable Values
 extension SettingsViewController {
-     struct SettingModel {
+    struct SettingModel {
         var text: String
         var image: UIImage?
         var selectionBlock: (() -> Void)?
     }
+
     enum SystemImage: String {
         case link = "external_link"
         case person = "person.fill"
         case rightArrow = "chevron.right"
     }
+
     enum CellTitle: String {
         case apiInfo = "Подробнее про igdb API"
         case appereance = "Оформление"

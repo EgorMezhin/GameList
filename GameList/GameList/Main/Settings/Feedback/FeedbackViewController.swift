@@ -8,7 +8,7 @@
 import UIKit
 
 class FeedbackViewController: UIViewController {
-    
+
     private lazy var feedbackView: FeedbackView = {
         let view = FeedbackView()
         view.delegate = self

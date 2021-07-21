@@ -5,7 +5,7 @@
 //  Created by Egor Lass on 17.07.2021.
 //
 
-typealias HTTPHeaders = [String:String]
+typealias HTTPHeaders = [String: String]
 
 enum HTTPTask {
     case request
@@ -18,5 +18,5 @@ enum HTTPTask {
             urlParameters: Parameters?,
             additionalHeaders: HTTPHeaders?
             )
-    
+
 }

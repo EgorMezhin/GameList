@@ -15,7 +15,7 @@ enum GameApi {
     case popular(page: Int)
 }
 
-//extension GameApi: EndPointType {
+// extension GameApi: EndPointType {
 //    
 //    var environmentBaseURL : String {
 //        switch NetworkManager.enviroment {
@@ -48,4 +48,4 @@ enum GameApi {
 //    }
 //    
 //    
-//}
+// }
