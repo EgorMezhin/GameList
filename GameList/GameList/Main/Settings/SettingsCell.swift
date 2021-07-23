@@ -27,12 +27,13 @@ final class SettingsCell: UITableViewCell {
         setSubviews()
         setConstraints()
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-// MARK: - SettingsCell methods
+// MARK: - SettingsCell configuration
 extension SettingsCell {
     func configureCell(title: String, image: UIImage?) {
         settingTitle.text = title

@@ -22,8 +22,10 @@ class SimpleGameCell: UITableViewCell {
         return label
     }()
 
+    // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         setSubviews()
         setConstraints()
     }
@@ -33,19 +35,20 @@ class SimpleGameCell: UITableViewCell {
     }
 }
 
-// MARK: - SimpleGameCell methods
+// MARK: - SimpleGameCell configuration
 extension SimpleGameCell {
     func configureCell(title: String, image: UIImage?) {
         gameLogoView.image = image
         gameNameLabel.text = title
     }
+
     private func setSubviews() {
         contentView.addSubview(gameLogoView)
         contentView.addSubview(gameNameLabel)
     }
+
     private func setConstraints() {
         NSLayoutConstraint.activate([
-
             gameLogoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             gameLogoView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             gameLogoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
@@ -54,7 +57,6 @@ extension SimpleGameCell {
             gameNameLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             gameNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             gameNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
-
         ])
     }
 }

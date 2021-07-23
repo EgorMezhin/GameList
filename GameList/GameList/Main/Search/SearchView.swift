@@ -5,4 +5,4 @@
 //  Created by Egor Lass on 21.07.2021.
 //
 
-import Foundation
+// TODO: подумать нужно ли выносить что-то из SearchViewController сюда

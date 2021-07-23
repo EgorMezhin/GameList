@@ -21,7 +21,7 @@ class FeedbackViewController: UIViewController {
     }
 }
 
-// MARK: - FeedbackViewController methods
+// MARK: - FeedbackViewController setup
 extension FeedbackViewController {
     private func setupView() {
         view.backgroundColor = .white
@@ -38,6 +38,6 @@ extension FeedbackViewController {
 // MARK: - FeedbackViewDelegate
 extension FeedbackViewController: FeedbackViewDelegate {
     func didTapFeedbackButton() {
-        // TODO: Add func
+        // TODO:
     }
 }

@@ -8,6 +8,10 @@
 import UIKit
 
 extension UIButton {
+    enum CustomizeButtonType {
+        case bordered
+    }
+
     func customize(withType type: CustomizeButtonType) {
         switch type {
         case .bordered:
@@ -18,8 +22,5 @@ extension UIButton {
             layer.cornerRadius = 10
             layer.masksToBounds = true
         }
-    }
-    enum CustomizeButtonType {
-        case bordered
     }
 }

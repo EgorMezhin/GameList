@@ -9,12 +9,18 @@ import UIKit
 
 final class InformationViewController: UIViewController {
     private lazy var informationView: InformationView = {
+        // TODO: подумать как лучше
         let view = InformationView()
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
 
+//    override func viewWillLayoutSubviews() {
+//        super.viewWillLayoutSubviews()
+//        informationView.frame = view.bounds
+//        informationView.center = view.center
+//    }
     // MARK: - InformationViewController lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +28,7 @@ final class InformationViewController: UIViewController {
     }
 }
 
-// MARK: - InformationViewController methods
+// MARK: - InformationViewController setup
 extension InformationViewController {
     private func setupView() {
         view.backgroundColor = .white

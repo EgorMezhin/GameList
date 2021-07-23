@@ -36,8 +36,10 @@ class DetailedGameCell: UITableViewCell {
         return label
     }()
 
+    // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         addSubviews()
         setConstraints()
     }
@@ -47,7 +49,7 @@ class DetailedGameCell: UITableViewCell {
     }
 }
 
-// MARK: - DetailedGameCell methods
+// MARK: - DetailedGameCell configuration
 extension DetailedGameCell {
     private func addSubviews() {
         contentView.addSubview(dateLabel)
@@ -74,7 +76,6 @@ extension DetailedGameCell {
             dateLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
-
         ])
     }
 }

@@ -22,6 +22,7 @@ class LibraryViewController: UIViewController {
         super.viewDidLayoutSubviews()
         libraryTableView.frame = view.bounds
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(libraryTableView)
@@ -30,11 +31,15 @@ class LibraryViewController: UIViewController {
 
 // MARK: - UITableViewDelegate
 extension LibraryViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showGameVC()
+    }
 }
 
 // MARK: - UITableViewDataSource
 extension LibraryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // TODO:
         return 2
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

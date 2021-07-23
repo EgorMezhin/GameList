@@ -7,6 +7,7 @@
 
 import UIKit
 
+// TODO: Разобраться с searchView
 class SearchViewController: UIViewController {
     private lazy var searchTableView: UITableView = {
         let tableView = UITableView()
@@ -19,7 +20,7 @@ class SearchViewController: UIViewController {
     private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = "Введите название игры"
+        searchController.searchBar.placeholder = Constants.searchPlaceholder
         searchController.searchBar.barTintColor = .white
         searchController.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
@@ -32,6 +33,7 @@ class SearchViewController: UIViewController {
         searchTableView.frame = view.bounds
         searchTableView.tableHeaderView = searchController.searchBar
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(searchTableView)
@@ -40,12 +42,15 @@ class SearchViewController: UIViewController {
 
 // MARK: - UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showGameVC()
+    }
 }
 
 // MARK: - UITableViewDataSource
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        return 5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(SimpleGameCell.self, indexPath: indexPath) else {
@@ -61,7 +66,6 @@ extension SearchViewController: UISearchResultsUpdating {
     // TODO:
   }
 }
-
 
 // MARK: - Cell methods
 extension SearchViewController {

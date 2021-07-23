@@ -5,9 +5,32 @@
 //  Created by Egor Lass on 21.07.2021.
 //
 
-import Foundation
+import UIKit
 
 extension MainTabBarController {
+    struct TabBarItems {
+        static let library = UITabBarItem(
+            title: VCTitle.library.rawValue,
+            image: UIImage(systemName: VCImage.gamecontroller.rawValue),
+            tag: 0
+        )
+        static let games = UITabBarItem(
+            title: VCTitle.popular.rawValue,
+            image: UIImage(systemName: VCImage.chartBar.rawValue),
+            tag: 0
+        )
+        static let seacrh = UITabBarItem(
+            title: VCTitle.search.rawValue,
+            image: UIImage(systemName: VCImage.magnifyingglass.rawValue),
+            tag: 0
+        )
+        static let settings = UITabBarItem(
+            title: VCTitle.settings.rawValue,
+            image: UIImage(systemName: VCImage.gear.rawValue),
+            tag: 0
+        )
+    }
+
     enum VCTitle: String {
         case library = "Библиотека"
         case popular = "Лучшее"

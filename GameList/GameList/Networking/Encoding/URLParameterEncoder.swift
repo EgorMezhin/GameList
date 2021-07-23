@@ -26,5 +26,4 @@ struct URLParameterEncoder: ParameterEncoder {
             urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
         }
     }
-
 }

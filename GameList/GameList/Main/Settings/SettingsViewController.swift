@@ -10,6 +10,7 @@ import UIKit
 final class SettingsViewController: UIViewController {
     private lazy var settingsTableView: UITableView = {
         let tableView = UITableView()
+        tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerCell(from: SettingsCell.self)

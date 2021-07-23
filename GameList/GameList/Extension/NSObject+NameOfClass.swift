@@ -11,7 +11,6 @@ extension NSObject {
     @objc class var nameOfClass: String {
         NSStringFromClass(self).components(separatedBy: ".").last ?? ""
     }
-    
     var nameOfClass: String {
         NSStringFromClass(type(of: self)).components(separatedBy: ".").last ?? ""
     }

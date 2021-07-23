@@ -53,7 +53,7 @@ final class InformationView: UIView {
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        configureView()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -70,9 +70,9 @@ extension InformationView {
     }
 }
 
-// MARK: - Configure
+// MARK: - InformationView configuration
 extension InformationView {
-    private func configure() {
+    private func configureView() {
         addSubview(nameLabel)
         addSubview(developerLabel)
         addSubview(photoView)
