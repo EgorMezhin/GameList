@@ -17,10 +17,10 @@ class SearchViewController: UIViewController {
         tableView.rowHeight = Constants.cellHeight
         return tableView
     }()
-    // TODO:
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar(frame: CGRect(x: 15, y: 100, width: 350, height: 50))
-        searchBar.showsCancelButton = true
+    //    searchBar.showsCancelButton = true
+        searchBar.delegate = self
         searchBar.placeholder = Constants.searchPlaceholder
         definesPresentationContext = true
         return searchBar
@@ -64,6 +64,26 @@ extension SearchViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     // TODO:
   }
+}
+
+// MARK: - UISearchBarDelegate
+extension SearchViewController: UISearchBarDelegate {
+    // TODO: Крутой метод скрытия кнопки Cancel 
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard let currentText = searchBar.text,
+              let range = Range(range, in: currentText) else {
+            return false
+        }
+        let newText = currentText.replacingCharacters(in: range, with: text)
+        searchBar.setShowsCancelButton(!newText.isEmpty, animated: true)
+        return true
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        searchBar.text = ""
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+
 }
 
 // MARK: - Cell methods
