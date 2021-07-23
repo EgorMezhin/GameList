@@ -24,7 +24,7 @@ final class SettingsCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-        setSubviews()
+        addSubviews()
         setConstraints()
     }
 
@@ -40,7 +40,7 @@ extension SettingsCell {
         settingImage.image = image
     }
 
-    private func setSubviews() {
+    private func addSubviews() {
         contentView.addSubview(settingTitle)
         contentView.addSubview(settingImage)
     }

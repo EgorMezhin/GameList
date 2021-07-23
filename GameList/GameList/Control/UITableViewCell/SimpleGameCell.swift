@@ -8,13 +8,13 @@
 import UIKit
 
 class SimpleGameCell: UITableViewCell {
-    let gameLogoView: UIImageView = {
+    private lazy var gameLogoView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "testGameLogoTwo")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    let gameNameLabel: UILabel = {
+    private lazy var gameNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Archlion Saga"
         label.font = .systemFont(ofSize: 22)
@@ -26,7 +26,7 @@ class SimpleGameCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-        setSubviews()
+        addSubviews()
         setConstraints()
     }
 
@@ -42,7 +42,7 @@ extension SimpleGameCell {
         gameNameLabel.text = title
     }
 
-    private func setSubviews() {
+    private func addSubviews() {
         contentView.addSubview(gameLogoView)
         contentView.addSubview(gameNameLabel)
     }

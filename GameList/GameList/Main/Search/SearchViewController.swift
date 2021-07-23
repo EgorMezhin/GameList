@@ -17,26 +17,25 @@ class SearchViewController: UIViewController {
         tableView.rowHeight = Constants.cellHeight
         return tableView
     }()
-    private lazy var searchController: UISearchController = {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = Constants.searchPlaceholder
-        searchController.searchBar.barTintColor = .white
-        searchController.hidesNavigationBarDuringPresentation = false
+    // TODO:
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar(frame: CGRect(x: 15, y: 100, width: 350, height: 50))
+        searchBar.showsCancelButton = true
+        searchBar.placeholder = Constants.searchPlaceholder
         definesPresentationContext = true
-        return searchController
+        return searchBar
     }()
 
     // MARK: - SearchViewController lifecycle methods
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         searchTableView.frame = view.bounds
-        searchTableView.tableHeaderView = searchController.searchBar
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(searchTableView)
+        searchTableView.tableHeaderView = searchBar
     }
 }
 
