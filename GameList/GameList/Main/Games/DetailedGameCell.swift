@@ -8,14 +8,12 @@
 import UIKit
 
 class DetailedGameCell: UITableViewCell {
-
     let gameLogoView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "testGameLogoOne")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-
     let gameNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Gothic"
@@ -23,7 +21,6 @@ class DetailedGameCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
     let gameGenreLabel: UILabel = {
         let label = UILabel()
         label.text = "RPG, Action"
@@ -42,7 +39,7 @@ class DetailedGameCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
-        setConstraint()
+        setConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -52,17 +49,15 @@ class DetailedGameCell: UITableViewCell {
 
 // MARK: - DetailedGameCell methods
 extension DetailedGameCell {
-
-    func addSubviews() {
+    private func addSubviews() {
         contentView.addSubview(dateLabel)
         contentView.addSubview(gameLogoView)
         contentView.addSubview(gameNameLabel)
         contentView.addSubview(gameGenreLabel)
     }
 
-    func setConstraint() {
+    private func setConstraints() {
         NSLayoutConstraint.activate([
-
             gameLogoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             gameLogoView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             gameLogoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),

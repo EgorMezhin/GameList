@@ -8,29 +8,26 @@
 import UIKit
 
 final class SettingsViewController: UIViewController {
-    private lazy var feedbackViewController = FeedbackViewController()
-    private lazy var informationViewController = InformationViewController()
     private lazy var settingsTableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        // TODO: change other cells register func
         tableView.registerCell(from: SettingsCell.self)
         return tableView
     }()
     private lazy var settings: [SettingModel] = [
         SettingModel(
-            text: CellTitle.developerInfo.rawValue,
+            text: SettingCellTitle.developerInfo.rawValue,
             image: nil,
             selectionBlock: showInformationVC
         ),
         SettingModel(
-            text: CellTitle.feedback.rawValue,
+            text: SettingCellTitle.feedback.rawValue,
             image: nil,
             selectionBlock: showFeedbackVC
         ),
         SettingModel(
-            text: CellTitle.apiInfo.rawValue,
+            text: SettingCellTitle.apiInfo.rawValue,
             image: UIImage(named: SystemImage.link.rawValue),
             selectionBlock: showApiInfo
         )
@@ -51,7 +48,7 @@ final class SettingsViewController: UIViewController {
 // MARK: - UITableViewDelegate
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        Constants.cellHeight
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -62,11 +59,10 @@ extension SettingsViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settings.count
+        settings.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: init other cells
         guard let cell = tableView.dequeueReusableCell(SettingsCell.self, indexPath: indexPath) else {
             return UITableViewCell()
         }
@@ -81,6 +77,7 @@ extension SettingsViewController: UITableViewDataSource {
 // MARK: - Cell methods
 extension SettingsViewController {
     private func showFeedbackVC() {
+        let feedbackViewController = FeedbackViewController()
         navigationController?.pushViewController(
             feedbackViewController,
             animated: true
@@ -88,6 +85,7 @@ extension SettingsViewController {
     }
 
     private func showInformationVC() {
+        let informationViewController = InformationViewController()
         navigationController?.pushViewController(
             informationViewController,
             animated: true
@@ -95,8 +93,7 @@ extension SettingsViewController {
     }
 
     private func showApiInfo() {
-        // TODO: Create global struct or enum for urls
-        if let url = URL(string: "https://www.igdb.com/api") {
+        if let url = URL(string: Constants.apiURL) {
             UIApplication.shared.open(url)
         }
     }

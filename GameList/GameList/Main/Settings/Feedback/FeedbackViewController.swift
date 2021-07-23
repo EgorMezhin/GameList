@@ -8,20 +8,20 @@
 import UIKit
 
 class FeedbackViewController: UIViewController {
-
     private lazy var feedbackView: FeedbackView = {
         let view = FeedbackView()
         view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
 }
 
-// MARK: - FeedbackViewController Methods
+// MARK: - FeedbackViewController methods
 extension FeedbackViewController {
     private func setupView() {
         view.backgroundColor = .white
@@ -37,7 +37,7 @@ extension FeedbackViewController {
 
 // MARK: - FeedbackViewDelegate
 extension FeedbackViewController: FeedbackViewDelegate {
-    func didTabFeedbackButton() {
+    func didTapFeedbackButton() {
         // TODO: Add func
     }
 }

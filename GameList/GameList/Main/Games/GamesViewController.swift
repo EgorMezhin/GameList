@@ -8,12 +8,10 @@
 import UIKit
 
 class GamesViewController: UIViewController {
-
     private lazy var gamesTableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        // TODO: change other cells register func
         tableView.registerCell(from: DetailedGameCell.self)
         return tableView
     }()
@@ -33,7 +31,7 @@ class GamesViewController: UIViewController {
 // MARK: - UITableViewDelegate
 extension GamesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        Constants.cellHeight
     }
 }
 
@@ -44,7 +42,6 @@ extension GamesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: init other cells
         guard let cell = tableView.dequeueReusableCell(DetailedGameCell.self, indexPath: indexPath) else {
             return UITableViewCell()
         }

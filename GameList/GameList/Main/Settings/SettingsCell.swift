@@ -10,7 +10,6 @@ import UIKit
 final class SettingsCell: UITableViewCell {
     private lazy var settingTitle: UILabel = {
         let label = UILabel()
-        label.text = "placeholder"
         label.font = label.font.withSize(22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -51,6 +50,7 @@ extension SettingsCell {
             settingTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             settingTitle.trailingAnchor.constraint(equalTo: settingImage.leadingAnchor, constant: -15),
             settingTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+
             settingImage.heightAnchor.constraint(equalToConstant: 20),
             settingImage.widthAnchor.constraint(equalToConstant: 20),
             settingImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

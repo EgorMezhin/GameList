@@ -24,7 +24,6 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     }
 
     fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
-
         var request = URLRequest(
             url: route.baseurl.appendingPathComponent(route.path),
                       cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
@@ -34,11 +33,9 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             switch route.task {
             case .request:
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
             case .requestParameters(
                  let bodyParameters,
                  let urlParameters):
-
                 try self.configureParameters(
                     bodyParameters: bodyParameters,
                     urlParameters: urlParameters,

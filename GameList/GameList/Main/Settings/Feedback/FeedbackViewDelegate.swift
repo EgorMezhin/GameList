@@ -6,5 +6,5 @@
 //
 
 protocol FeedbackViewDelegate: AnyObject {
-    func didTabFeedbackButton()
+    func didTapFeedbackButton()
 }

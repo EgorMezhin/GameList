@@ -18,5 +18,4 @@ enum HTTPTask {
             urlParameters: Parameters?,
             additionalHeaders: HTTPHeaders?
             )
-
 }

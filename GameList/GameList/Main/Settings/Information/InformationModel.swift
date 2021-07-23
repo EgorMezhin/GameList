@@ -5,8 +5,6 @@
 //  Created by Egor Lass on 15.07.2021.
 //
 
-// TODO: New name for MARK?
-// MARK: - InformationViewController Variable Values
 extension InformationViewController {
     enum Website: String {
         case github = "https://github.com/EgorMezhin"
@@ -14,8 +12,6 @@ extension InformationViewController {
     }
 }
 
-// TODO: New name for MARK?
-// MARK: - InformationView Variable Values
 extension InformationView {
     enum Title: String {
         case name = "Егор Межин"

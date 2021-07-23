@@ -6,13 +6,17 @@
 //
 
 import UIKit
-// TODO: think about new MARK name
-// MARK: - Variable Values
+
 extension SettingsViewController {
     struct SettingModel {
         var text: String
         var image: UIImage?
         var selectionBlock: (() -> Void)?
+    }
+
+    struct Constants {
+        static let apiURL = "https://www.igdb.com/api"
+        static let cellHeight: CGFloat = 50
     }
 
     enum SystemImage: String {
@@ -21,7 +25,7 @@ extension SettingsViewController {
         case rightArrow = "chevron.right"
     }
 
-    enum CellTitle: String {
+    enum SettingCellTitle: String {
         case apiInfo = "Подробнее про igdb API"
         case appereance = "Оформление"
         case developerInfo = "О разработчике"

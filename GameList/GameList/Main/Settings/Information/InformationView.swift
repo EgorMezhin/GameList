@@ -49,9 +49,11 @@ final class InformationView: UIView {
         button.addTarget(self, action: #selector(didTapTelegramButton), for: .touchUpInside)
         return button
     }()
+
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        initialize()
+        configure()
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -68,9 +70,9 @@ extension InformationView {
     }
 }
 
-// MARK: - Initialization
+// MARK: - Configure
 extension InformationView {
-    private func initialize() {
+    private func configure() {
         addSubview(nameLabel)
         addSubview(developerLabel)
         addSubview(photoView)
@@ -79,16 +81,20 @@ extension InformationView {
         NSLayoutConstraint.activate([
             nameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+
             developerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             developerLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
+
             photoView.topAnchor.constraint(equalTo: developerLabel.bottomAnchor, constant: 20),
             photoView.centerXAnchor.constraint(equalTo: centerXAnchor),
             photoView.widthAnchor.constraint(equalToConstant: 200),
             photoView.heightAnchor.constraint(equalToConstant: 250),
+
             githubButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             githubButton.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
             githubButton.topAnchor.constraint(equalTo: photoView.bottomAnchor, constant: 20),
             githubButton.heightAnchor.constraint(equalToConstant: 50),
+
             telegramButton.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
             telegramButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             telegramButton.topAnchor.constraint(equalTo: githubButton.topAnchor),

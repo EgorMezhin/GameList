@@ -8,14 +8,12 @@
 import UIKit
 
 class LibraryViewController: UIViewController {
-
-    private lazy var gameViewController = GameViewController()
     private lazy var libraryTableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        // TODO: change other cells register func
         tableView.registerCell(from: SimpleGameCell.self)
+        tableView.rowHeight = Constants.cellHeight
         return tableView
     }()
 
@@ -32,9 +30,6 @@ class LibraryViewController: UIViewController {
 
 // MARK: - UITableViewDelegate
 extension LibraryViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
 }
 
 // MARK: - UITableViewDataSource
@@ -43,7 +38,6 @@ extension LibraryViewController: UITableViewDataSource {
         return 2
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: init other cells
         guard let cell = tableView.dequeueReusableCell(SimpleGameCell.self, indexPath: indexPath) else {
             return UITableViewCell()
         }
@@ -54,6 +48,7 @@ extension LibraryViewController: UITableViewDataSource {
 // MARK: - Cell methods
 extension LibraryViewController {
     private func showGameVC() {
+        let gameViewController = GameViewController()
         navigationController?.pushViewController(
             gameViewController,
             animated: true
