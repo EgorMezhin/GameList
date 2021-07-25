@@ -59,6 +59,7 @@
 		D0BA106826AD3E9E00BA1390 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA106726AD3E9E00BA1390 /* Games.swift */; };
 		D0BA107126AD40EF00BA1390 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA107026AD40EF00BA1390 /* Typealias.swift */; };
 		D0BA107926AD783E00BA1390 /* GameSearchBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA107826AD783E00BA1390 /* GameSearchBody.swift */; };
+		D0BA107E26AD8BD800BA1390 /* LoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA107D26AD8BD800BA1390 /* LoadView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		D0BA106726AD3E9E00BA1390 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		D0BA107026AD40EF00BA1390 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		D0BA107826AD783E00BA1390 /* GameSearchBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSearchBody.swift; sourceTree = "<group>"; };
+		D0BA107D26AD8BD800BA1390 /* LoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 				D0BA107026AD40EF00BA1390 /* Typealias.swift */,
 				D0BA105826AC9F5F00BA1390 /* UIColor */,
 				D012CC9926A8A727002E3742 /* UITableViewCell */,
+				D0BA107D26AD8BD800BA1390 /* LoadView.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				D012CC1126A45970002E3742 /* NetworkManager.swift in Sources */,
 				D01470912689F5C600F0B690 /* GameList.xcdatamodeld in Sources */,
 				D012CBAB26A05993002E3742 /* InformationModel.swift in Sources */,
+				D0BA107E26AD8BD800BA1390 /* LoadView.swift in Sources */,
 				D025F5BF26936207002E2383 /* SettingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@ import UIKit
 // TODO: Разобраться с searchView
 class SearchViewController: UIViewController {
     private lazy var networkManager = NetworkManager()
+    private lazy var games: Games = []
     private lazy var searchTableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -26,11 +27,16 @@ class SearchViewController: UIViewController {
         definesPresentationContext = true
         return searchBar
     }()
+    private lazy var loadView: LoadView = {
+        let loadView = LoadView()
+        return loadView
+    }()
 
     // MARK: - SearchViewController lifecycle methods
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         searchTableView.frame = view.bounds
+        loadView.frame = view.bounds
     }
 
     override func viewDidLoad() {
@@ -50,12 +56,13 @@ extension SearchViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return games.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(SimpleGameCell.self, indexPath: indexPath) else {
             return UITableViewCell()
         }
+        cell.configureCell(title: games[indexPath.row].name, image: nil)
         return cell
     }
 }
@@ -89,7 +96,7 @@ extension SearchViewController: UISearchBarDelegate {
         guard let currentText = searchBar.text else { return }
         let serched = currentText.trimmingCharacters(in: .whitespacesAndNewlines)
         if !serched.isEmpty {
-            didTapSearchButtonClicked(withText: serched)
+            fetchGames(withText: serched)
         }
     }
 }
@@ -104,10 +111,44 @@ extension SearchViewController {
         )
     }
 
-    private func didTapSearchButtonClicked(withText text: String) {
-        networkManager.getGames(body: GameSearchBody(text: text).body,
-                                completion: { (response, error) in
-                                    print(response)
-                                })
+    private func setLoading(_ isLoading: Bool) {
+
+    }
+
+    private func removeData() {
+        guard games.isEmpty else {
+            return
+        }
+//        searchTableView.beginUpdates()
+//        searchTableView.deleteSections(IndexSet(integer: 0), with: .fade)
+//        searchTableView.endUpdates()
+        searchTableView.reloadData()
+    }
+
+    private func updateData() {
+//        searchTableView.beginUpdates()
+//        searchTableView.insertSections(IndexSet(integer: 0), with: .fade)
+//        searchTableView.endUpdates()
+        searchTableView.reloadData()
+    }
+
+    private func fetchGames(withText text: String) {
+        let request = GameSearchBodyRequest(text: text)
+        networkManager
+            .fetch(request: request,
+                   completion: { [weak self] (result: Result<GamesResponseBody>) in
+                    DispatchQueue.main.async {
+                        guard let self = self else { return }
+                        switch result {
+                        case .success(let body):
+                            self.removeData()
+                            self.games = body.games ?? []
+                            self.updateData()
+
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                   })
     }
 }

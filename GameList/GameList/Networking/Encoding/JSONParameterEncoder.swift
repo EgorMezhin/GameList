@@ -16,7 +16,7 @@ struct JSONParameterEncoder: ParameterEncoder {
                 urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
             }
         } catch {
-            throw NetworkError.encodingFailed
+            throw NetworkError.encodeError
         }
     }
 }
@@ -27,7 +27,7 @@ struct UTF8ParameterEncoder: ParameterEncoder {
             urlRequest.httpBody = data
             urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
         } else {
-            throw NetworkError.encodingFailed
+            throw NetworkError.encodeError
         }
     }
 }
