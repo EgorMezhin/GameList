@@ -58,6 +58,7 @@
 		D0BA105F26AC9FFF00BA1390 /* UIImageVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA105E26AC9FFF00BA1390 /* UIImageVIew.swift */; };
 		D0BA106826AD3E9E00BA1390 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA106726AD3E9E00BA1390 /* Games.swift */; };
 		D0BA107126AD40EF00BA1390 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA107026AD40EF00BA1390 /* Typealias.swift */; };
+		D0BA107926AD783E00BA1390 /* GameSearchBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA107826AD783E00BA1390 /* GameSearchBody.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		D0BA105E26AC9FFF00BA1390 /* UIImageVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageVIew.swift; sourceTree = "<group>"; };
 		D0BA106726AD3E9E00BA1390 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		D0BA107026AD40EF00BA1390 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		D0BA107826AD783E00BA1390 /* GameSearchBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSearchBody.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				D0BA106726AD3E9E00BA1390 /* Games.swift */,
+				D0BA107826AD783E00BA1390 /* GameSearchBody.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				D012CBE326A3233D002E3742 /* JSONParameterEncoder.swift in Sources */,
 				D012CCAA26AAFE68002E3742 /* GamesModel.swift in Sources */,
 				D012CC7726A8364C002E3742 /* SearchView.swift in Sources */,
+				D0BA107926AD783E00BA1390 /* GameSearchBody.swift in Sources */,
 				D012CC6726A83581002E3742 /* SearchViewController.swift in Sources */,
 				D0BA106826AD3E9E00BA1390 /* Games.swift in Sources */,
 				D012CC5126A82510002E3742 /* LibraryModel.swift in Sources */,

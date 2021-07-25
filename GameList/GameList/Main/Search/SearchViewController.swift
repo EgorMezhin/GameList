@@ -9,6 +9,7 @@ import UIKit
 
 // TODO: Разобраться с searchView
 class SearchViewController: UIViewController {
+    private lazy var networkManager = NetworkManager()
     private lazy var searchTableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
@@ -84,6 +85,13 @@ extension SearchViewController: UISearchBarDelegate {
         searchBar.setShowsCancelButton(false, animated: true)
     }
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let currentText = searchBar.text else { return }
+        let serched = currentText.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !serched.isEmpty {
+            didTapSearchButtonClicked(withText: serched)
+        }
+    }
 }
 
 // MARK: - Cell methods
@@ -94,5 +102,12 @@ extension SearchViewController {
             gameViewController,
             animated: true
         )
+    }
+
+    private func didTapSearchButtonClicked(withText text: String) {
+        networkManager.getGames(body: GameSearchBody(text: text).body,
+                                completion: { (response, error) in
+                                    print(response)
+                                })
     }
 }

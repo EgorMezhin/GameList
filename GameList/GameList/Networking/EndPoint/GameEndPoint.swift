@@ -12,14 +12,14 @@ enum NetworkEnvironment {
 }
 
 enum GameApi {
-    case popular(page: Int)
+    case games(body: String)
 }
 
 extension GameApi: EndPointType {
 
     var environmentBaseURL : String {
         switch NetworkManager.enviroment {
-        case .production: return "https://api.themoviedb.org/3/movie/"
+        case .production: return "https://api.igdb.com/v4/"
         }
     }
 
@@ -30,8 +30,8 @@ extension GameApi: EndPointType {
 
     var path: String {
         switch self {
-        case .popular:
-            return "popular"
+        case .games:
+            return "games"
         }
     }
 
@@ -41,10 +41,13 @@ extension GameApi: EndPointType {
 
     var task: HTTPTask {
         switch self {
-        case .popular(let page):
-            return .requestParameters(bodyParameters: nil,
-                                      urlParameters: ["page":page,
-                                                      "api_key":NetworkManager.gameApiKey])
+        case .games(let body):
+            return .requestParametersAndHeaders(bodyParameters: body,
+                                                urlParameters: nil,
+                                                additionalHeaders: ["Authorization": NetworkManager.gameApiKey,                     "Client-ID": NetworkManager.gameClientId])
+        //            return .requestParameters(bodyParameters: nil,
+        //                                      urlParameters: ["page": page,
+        //                                                      "api_key": NetworkManager.gameApiKey])
         default:
             return .request
         }

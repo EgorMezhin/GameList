@@ -28,8 +28,8 @@ struct NetworkManager {
     static let gameClientId = "hg06ldgpya6qztyomftjz57yy2b0ze"
     private let router = Router<GameApi>()
 
-    func getNewMovies(page: Int, completion: @escaping (_ movie: [Game]?,_ error: String?)->()){
-         router.request(.popular(page: page)) { data, response, error in
+    func getGames(body: String, completion: @escaping (_ movie: [Game]?,_ error: String?)->()){
+        router.request(.games(body: body)) { data, response, error in
 
              if error != nil {
                  completion(nil, "Please check your network connection.")
@@ -44,13 +44,10 @@ struct NetworkManager {
                          return
                      }
                      do {
-                         print(responseData)
-                         let jsonData = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers)
-                         print(jsonData)
-//                         let apiResponse = try JSONDecoder().decode(Game.self, from: responseData)
-//                        completion(apiResponse.name,nil)
+                        let games = try JSONDecoder().decode([Game].self, from: responseData)
+                         completion(games, nil)
                      }catch {
-                         print(error)
+                          print(error)
                          completion(nil, NetworkResponse.unableToDecode.rawValue)
                      }
                  case .failure(let networkFailureError):

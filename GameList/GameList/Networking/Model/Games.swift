@@ -18,7 +18,7 @@ struct Game: Codable {
     let summary: String?
     let url: String
     let involvedCompanies: [Int]?
-    let rating: Int?
+    let rating: Double?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -30,7 +30,6 @@ struct Game: Codable {
         case url
         case involvedCompanies = "involved_companies"
         case rating
-
     }
 }
 

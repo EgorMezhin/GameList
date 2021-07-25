@@ -20,3 +20,16 @@ struct JSONParameterEncoder: ParameterEncoder {
         }
     }
 }
+
+struct UTF8ParameterEncoder: ParameterEncoder {
+    static func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws {
+        if let data = parameters.data(using: .utf8, allowLossyConversion: false) {
+            urlRequest.httpBody = data
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
+        } else {
+            throw NetworkError.encodingFailed
+        }
+    }
+}
+
+
