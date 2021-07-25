@@ -13,8 +13,8 @@ class FeedbackView: UIView {
         let textView = UITextView()
         textView.font = UIFont.systemFont(ofSize: 18)
         textView.layer.borderWidth = 1
-        textView.layer.borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0).cgColor
-        textView.layer.cornerRadius = 10
+        textView.layer.borderColor = AppColor.pink.cgColor
+        textView.layer.cornerRadius = 8.0
         textView.autocorrectionType = .no
         textView.keyboardType = .default
         textView.returnKeyType = .send

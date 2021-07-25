@@ -15,11 +15,10 @@ extension UIButton {
     func customize(withType type: CustomizeButtonType) {
         switch type {
         case .bordered:
-            setTitleColor(.black, for: .normal)
+            setTitleColor(AppColor.white, for: .normal)
             titleLabel?.font = UIFont.systemFont(ofSize: 18)
-            layer.borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0).cgColor
-            layer.borderWidth = 1
-            layer.cornerRadius = 10
+            layer.backgroundColor = AppColor.purple.cgColor
+            layer.cornerRadius = 8.0
             layer.masksToBounds = true
         }
     }
