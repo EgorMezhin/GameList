@@ -9,25 +9,17 @@ import Foundation
 
 struct Game: Codable {
     let id: Int
-    let cover: Cover?
-    let firstReleaseDate: Int?
-    let genres: [Int]?
+    let cover: Cover
+    let genres: [Genre]?
     let name: String
-    let summary: String?
-    let url: String
-    let involvedCompanies: [Int]?
-    let rating: Double?
+    let releaseDates: [ReleaseDate]?
 
     enum CodingKeys: String, CodingKey {
         case id
         case cover
-        case firstReleaseDate = "first_release_date"
         case genres
         case name
-        case summary
-        case url
-        case involvedCompanies = "involved_companies"
-        case rating
+        case releaseDates = "release_dates"
     }
 }
 
@@ -36,6 +28,11 @@ struct Cover: Codable {
     let url: String
 }
 
-//struct Genre: Codable {
-//    let name: String
-//}
+struct ReleaseDate: Codable {
+    let id: Int
+    let human: String
+}
+
+struct Genre: Codable {
+    let name: String
+}

@@ -10,6 +10,7 @@ import UIKit
 class GamesViewController: UIViewController {
     private lazy var networkManager = NetworkManager()
     private lazy var games: Games = []
+    private lazy var releaseDates: [ReleaseDate] = []
     private lazy var gamesTableView: UITableView = {
         let tableView = UITableView()
      //   tableView.separatorStyle = .none
@@ -23,14 +24,38 @@ class GamesViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         gamesTableView.frame = view.bounds
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(gamesTableView)
-//        fetchGames()
+
+        fetchGames()
     }
 
+    private func fetchGames() {
+
+
+        let request = GameByRatingBodyRequest()
+        networkManager
+            .fetch(request: request,
+                   completion: { [weak self] (result: Result<GamesResponseBody>) in
+                    DispatchQueue.main.async {
+                        guard let self = self else { return }
+                        switch result {
+                        case .success(let body):
+                            self.removeData()
+                            self.games = body.games ?? []
+                            self.updateData()
+                            print(self.games)
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
+                   })
+
+    }
 
     private func removeData() {
         guard games.isEmpty else {
@@ -92,9 +117,27 @@ extension GamesViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(DetailedGameCell.self, indexPath: indexPath) else {
             return UITableViewCell()
         }
-//        cell.gameNameLabel.text = games[indexPath.row].name
-//        cell.gameGenreLabel.text = games[indexPath.row].genres?.name
- //       cell.dateLabel.text = games[indexPath.row].firstReleaseDate
+        let coverString = games[indexPath.row].cover.url
+            let fullCoverString = "https:" + coverString
+            if let coverUrl = URL(string: fullCoverString) {
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: coverUrl)
+                    if let unwrappedData = data {
+                        DispatchQueue.main.async {
+                            if let unwrappedGenreArray = self.games[indexPath.row].genres,
+                               let unwrappedDateArray = self.games[indexPath.row].releaseDates {
+                                cell.configureCell(
+                                    title: self.games[indexPath.row].name,
+                                    image: UIImage(data: unwrappedData),
+                                    genres: unwrappedGenreArray[0].name,
+                                    releaseDate: unwrappedDateArray[0].human)
+                            }
+
+                        }
+                    }
+                }
+            }
+
         return cell
     }
 }

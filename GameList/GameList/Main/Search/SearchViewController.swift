@@ -62,19 +62,20 @@ extension SearchViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(SimpleGameCell.self, indexPath: indexPath) else {
             return UITableViewCell()
         }
-        if let coverString = games[indexPath.row].cover?.url {
+         let coverString = games[indexPath.row].cover.url 
             let fullCoverString = "https:" + coverString
             if let coverUrl = URL(string: fullCoverString) {
                 DispatchQueue.global().async {
                     let data = try? Data(contentsOf: coverUrl)
                     if let unwrappedData = data {
                         DispatchQueue.main.async {
-                            cell.configureCell(title: self.games[indexPath.row].name, image: UIImage(data: unwrappedData))
+                            cell.configureCell(title: self.games[indexPath.row].name,
+                                               image: UIImage(data: unwrappedData))
                         }
                     }
                 }
             }
-        }
+
         return cell
     }
 }
@@ -140,9 +141,6 @@ extension SearchViewController {
 
     private func fetchGames(withText text: String) {
 
-        loadingView.isHidden = false
-        loadingView.activity.startAnimating()
-
         let request = GameSearchBodyRequest(text: text)
         networkManager
             .fetch(request: request,
@@ -159,7 +157,5 @@ extension SearchViewController {
                         }
                     }
                    })
-        loadingView.activity.stopAnimating()
-
     }
 }

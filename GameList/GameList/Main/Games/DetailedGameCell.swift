@@ -51,6 +51,12 @@ class DetailedGameCell: UITableViewCell {
 
 // MARK: - DetailedGameCell configuration
 extension DetailedGameCell {
+    func configureCell(title: String, image: UIImage?, genres: String?, releaseDate: String?) {
+        gameLogoView.image = image
+        gameNameLabel.text = title
+        gameGenreLabel.text = genres
+        dateLabel.text = releaseDate
+    }
     private func addSubviews() {
         contentView.addSubview(dateLabel)
         contentView.addSubview(gameLogoView)
