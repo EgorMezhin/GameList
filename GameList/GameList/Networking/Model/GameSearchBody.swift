@@ -7,14 +7,20 @@
 
 import Foundation
 
+protocol Requestable {
+    var body: String { get }
+}
+
+
 struct GameSearchBodyRequest: Requestable {
     let body: String
     init(text: String) {
         self.body = """
-        fields *; search "\(text)";
+        fields id, name, first_release_date, genres, summary, url, involved_companies, rating, cover.url; search "\(text)";
         """
     }
 }
+
 
 struct GamesResponseBody: Responsable {
     let games: [Game]?
@@ -24,8 +30,4 @@ struct GamesResponseBody: Responsable {
         let stringArray = try container.decode([Game].self)
         games = stringArray
     }
-}
-
-protocol Requestable {
-    var body: String { get }
 }

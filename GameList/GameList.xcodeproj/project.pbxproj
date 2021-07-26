@@ -14,8 +14,6 @@
 		D012CBCA26A31F9B002E3742 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBC926A31F9B002E3742 /* HTTPMethod.swift */; };
 		D012CBCF26A3200A002E3742 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBCE26A3200A002E3742 /* HTTPTask.swift */; };
 		D012CBD426A320C8002E3742 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBD326A320C8002E3742 /* ParameterEncoding.swift */; };
-		D012CBD926A32161002E3742 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBD826A32161002E3742 /* NetworkError.swift */; };
-		D012CBDE26A321B7002E3742 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBDD26A321B7002E3742 /* URLParameterEncoder.swift */; };
 		D012CBE326A3233D002E3742 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBE226A3233D002E3742 /* JSONParameterEncoder.swift */; };
 		D012CBE826A323F0002E3742 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBE726A323F0002E3742 /* NetworkRouter.swift */; };
 		D012CBED26A32458002E3742 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = D012CBEC26A32458002E3742 /* Router.swift */; };
@@ -60,6 +58,7 @@
 		D0BA107126AD40EF00BA1390 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA107026AD40EF00BA1390 /* Typealias.swift */; };
 		D0BA107926AD783E00BA1390 /* GameSearchBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA107826AD783E00BA1390 /* GameSearchBody.swift */; };
 		D0BA107E26AD8BD800BA1390 /* LoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA107D26AD8BD800BA1390 /* LoadView.swift */; };
+		D0BA108326ADEFF800BA1390 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA108226ADEFF800BA1390 /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,8 +86,6 @@
 		D012CBC926A31F9B002E3742 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		D012CBCE26A3200A002E3742 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
 		D012CBD326A320C8002E3742 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		D012CBD826A32161002E3742 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		D012CBDD26A321B7002E3742 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
 		D012CBE226A3233D002E3742 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		D012CBE726A323F0002E3742 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		D012CBEC26A32458002E3742 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -139,6 +136,7 @@
 		D0BA107026AD40EF00BA1390 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		D0BA107826AD783E00BA1390 /* GameSearchBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSearchBody.swift; sourceTree = "<group>"; };
 		D0BA107D26AD8BD800BA1390 /* LoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadView.swift; sourceTree = "<group>"; };
+		D0BA108226ADEFF800BA1390 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +178,7 @@
 		D012CBBC26A31E6A002E3742 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				D0BA107026AD40EF00BA1390 /* Typealias.swift */,
 				D0BA106626AD3E8C00BA1390 /* Model */,
 				D012CBBD26A31E80002E3742 /* EndPoint */,
 				D012CBC026A31E9F002E3742 /* Manager */,
@@ -201,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				D012CBD326A320C8002E3742 /* ParameterEncoding.swift */,
-				D012CBDD26A321B7002E3742 /* URLParameterEncoder.swift */,
 				D012CBE226A3233D002E3742 /* JSONParameterEncoder.swift */,
 			);
 			path = Encoding;
@@ -213,7 +211,6 @@
 				D012CBC126A31ECD002E3742 /* EndPointType.swift */,
 				D012CBC926A31F9B002E3742 /* HTTPMethod.swift */,
 				D012CBCE26A3200A002E3742 /* HTTPTask.swift */,
-				D012CBD826A32161002E3742 /* NetworkError.swift */,
 				D012CBE726A323F0002E3742 /* NetworkRouter.swift */,
 				D012CBEC26A32458002E3742 /* Router.swift */,
 			);
@@ -278,7 +275,6 @@
 		D012CC9826A8A711002E3742 /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				D0BA107026AD40EF00BA1390 /* Typealias.swift */,
 				D0BA105826AC9F5F00BA1390 /* UIColor */,
 				D012CC9926A8A727002E3742 /* UITableViewCell */,
 				D0BA107D26AD8BD800BA1390 /* LoadView.swift */,
@@ -411,6 +407,7 @@
 			children = (
 				D0BA106726AD3E9E00BA1390 /* Games.swift */,
 				D0BA107826AD783E00BA1390 /* GameSearchBody.swift */,
+				D0BA108226ADEFF800BA1390 /* NetworkError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -584,6 +581,7 @@
 				D012CC5126A82510002E3742 /* LibraryModel.swift in Sources */,
 				D0BA105F26AC9FFF00BA1390 /* UIImageVIew.swift in Sources */,
 				D025F6192694618B002E2383 /* FeedbackView.swift in Sources */,
+				D0BA108326ADEFF800BA1390 /* NetworkError.swift in Sources */,
 				D012CC6F26A83641002E3742 /* SearchModel.swift in Sources */,
 				D014708B2689F5C600F0B690 /* MainTabBarController.swift in Sources */,
 				D012CC1926A5E16E002E3742 /* UIButton.swift in Sources */,
@@ -591,11 +589,9 @@
 				D025F62D26949A86002E2383 /* DetailedGameCell.swift in Sources */,
 				D025F60F26946168002E2383 /* FeedbackViewController.swift in Sources */,
 				D012CC3526A765B9002E3742 /* FeedbackViewDelegate.swift in Sources */,
-				D012CBD926A32161002E3742 /* NetworkError.swift in Sources */,
 				D012CCAF26AB0E5A002E3742 /* GameModel.swift in Sources */,
 				D025F6142694617A002E2383 /* FeedbackModel.swift in Sources */,
 				D012CC3026A72C00002E3742 /* SettingsModel.swift in Sources */,
-				D012CBDE26A321B7002E3742 /* URLParameterEncoder.swift in Sources */,
 				D012CBF326A33667002E3742 /* GameEndPoint.swift in Sources */,
 				D012CC8526A864D2002E3742 /* SimpleGameCell.swift in Sources */,
 				D025F63226949AA5002E2383 /* GamesViewController.swift in Sources */,

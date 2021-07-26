@@ -14,21 +14,21 @@ class DetailedGameCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    let gameNameLabel: UILabel = {
+    lazy var gameNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Gothic"
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    let gameGenreLabel: UILabel = {
+    lazy var gameGenreLabel: UILabel = {
         let label = UILabel()
         label.text = "RPG, Action"
         label.font = label.font.withSize(18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    let dateLabel: UILabel = {
+    lazy var dateLabel: UILabel = {
         let label = UILabel()
         label.text = "15.03.2001"
         label.font = UIFont.systemFont(ofSize: 14)

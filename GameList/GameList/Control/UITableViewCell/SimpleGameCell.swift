@@ -17,7 +17,9 @@ class SimpleGameCell: UITableViewCell {
     private lazy var gameNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Archlion Saga"
-        label.font = .systemFont(ofSize: 22)
+        label.font = .systemFont(ofSize: 20)
+        label.lineBreakMode = .byTruncatingTail
+        label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -52,7 +54,7 @@ extension SimpleGameCell {
             gameLogoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             gameLogoView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             gameLogoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
-            gameLogoView.widthAnchor.constraint(equalToConstant: 40),
+            gameLogoView.widthAnchor.constraint(equalToConstant: 50),
 
             gameNameLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             gameNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

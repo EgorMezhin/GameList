@@ -9,6 +9,6 @@ import UIKit
 
 extension LibraryViewController {
     struct Constants {
-        static let cellHeight: CGFloat = 60
+        static let cellHeight: CGFloat = 70
     }
 }

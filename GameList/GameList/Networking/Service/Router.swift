@@ -64,9 +64,6 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             if let bodyParameters = bodyParameters {
                 try UTF8ParameterEncoder.encode(urlRequest: &request, with: bodyParameters)
             }
-//            if let urlParameters = urlParameters {
-//                try URLParameterEncoder.encode(urlRequest: &request, with: urlParameters)
-//            }
         } catch {
             throw error
         }

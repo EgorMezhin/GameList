@@ -7,23 +7,12 @@
 
 import Foundation
 
-enum NetworkError: String, Error {
-    case authenticationError = "You need to be authenticated first."
-    case badRequest = "Bad request"
-    case outdated = "The url you requested is outdated."
-    case failed = "Network request failed."
-    case noData = "Response returned with no data to decode."
-    case unableToDecode = "We could not decode the response."
-    case decodableError
-    case encodeError
-}
+protocol Responsable: Codable {}
 
 enum ResponseType {
     case success
     case failure
 }
-
-typealias Result<R: Responsable> = Swift.Result<R, NetworkError>
 
 struct NetworkManager {
     static let enviroment: NetworkEnvironment = .production
@@ -31,15 +20,12 @@ struct NetworkManager {
     static let gameClientId = "hg06ldgpya6qztyomftjz57yy2b0ze"
     private let router = Router<GameApi>()
 
-    func fetch<R: Responsable>(request: Requestable,
-                               completion: @escaping (Result<R>) -> Void){
+    func fetch<R: Responsable>(request: Requestable, completion: @escaping (Result<R>) -> Void) {
         router.request(.games(body: request.body)) { data, response, error in
             guard error == nil else {
                 completion(.failure(.failed))
                 return
             }
-
-
              if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
                  switch result {
@@ -60,6 +46,11 @@ struct NetworkManager {
          }
      }
 
+    fileprivate func decode<R: Responsable>(data: Data) throws -> R {
+        let response = try JSONDecoder().decode(R.self, from: data)
+        return response
+    }
+
     fileprivate func handleError(_ response: HTTPURLResponse) -> NetworkError {
         switch response.statusCode {
         case 401...500: return .authenticationError
@@ -74,10 +65,5 @@ struct NetworkManager {
         case 200...299: return .success
         default: return .failure
         }
-    }
-
-    fileprivate func decode<R: Responsable>(data: Data) throws -> R {
-        let response = try JSONDecoder().decode(R.self, from: data)
-        return response
     }
 }
