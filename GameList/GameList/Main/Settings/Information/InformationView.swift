@@ -28,7 +28,7 @@ final class InformationView: UIView {
         view.backgroundColor = .cyan
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 8
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

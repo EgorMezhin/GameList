@@ -18,6 +18,7 @@ final class GameViewController: UIViewController {
     // MARK: - GameViewController lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = AppColor.lightBlue
         setupView()
     }
 }

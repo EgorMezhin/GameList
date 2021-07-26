@@ -11,6 +11,8 @@ class SimpleGameCell: UITableViewCell {
     private lazy var gameLogoView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "testGameLogoTwo")
+        imageView.layer.cornerRadius = 8
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

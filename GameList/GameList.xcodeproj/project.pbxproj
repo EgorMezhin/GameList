@@ -59,6 +59,7 @@
 		D0BA107926AD783E00BA1390 /* GameSearchBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA107826AD783E00BA1390 /* GameSearchBody.swift */; };
 		D0BA107E26AD8BD800BA1390 /* LoadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA107D26AD8BD800BA1390 /* LoadView.swift */; };
 		D0BA108326ADEFF800BA1390 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA108226ADEFF800BA1390 /* NetworkError.swift */; };
+		D0BA10A526AF4BB000BA1390 /* UISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BA10A426AF4BB000BA1390 /* UISearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		D0BA107826AD783E00BA1390 /* GameSearchBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSearchBody.swift; sourceTree = "<group>"; };
 		D0BA107D26AD8BD800BA1390 /* LoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadView.swift; sourceTree = "<group>"; };
 		D0BA108226ADEFF800BA1390 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		D0BA10A426AF4BB000BA1390 /* UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +235,7 @@
 				D012CC1826A5E16E002E3742 /* UIButton.swift */,
 				D012CCC126AB5E6A002E3742 /* UITabBarController.swift */,
 				D0BA105E26AC9FFF00BA1390 /* UIImageVIew.swift */,
+				D0BA10A426AF4BB000BA1390 /* UISearchBar.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				D01470912689F5C600F0B690 /* GameList.xcdatamodeld in Sources */,
 				D012CBAB26A05993002E3742 /* InformationModel.swift in Sources */,
 				D0BA107E26AD8BD800BA1390 /* LoadView.swift in Sources */,
+				D0BA10A526AF4BB000BA1390 /* UISearchBar.swift in Sources */,
 				D025F5BF26936207002E2383 /* SettingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

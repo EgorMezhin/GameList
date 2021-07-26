@@ -11,6 +11,7 @@ final class SettingsViewController: UIViewController {
     private lazy var settingsTableView: UITableView = {
         let tableView = UITableView()
         tableView.tableFooterView = UIView()
+        tableView.separatorColor = AppColor.blue
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerCell(from: SettingsCell.self)
@@ -42,6 +43,7 @@ final class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = AppColor.lightBlue
         view.addSubview(settingsTableView)
     }
 }

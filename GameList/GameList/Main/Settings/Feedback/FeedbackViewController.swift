@@ -17,6 +17,7 @@ class FeedbackViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = AppColor.lightBlue
         setupView()
     }
 }

@@ -34,6 +34,7 @@ class MainTabBarController: UITabBarController {
     // MARK: - TabBarСontroller lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.barTintColor = AppColor.lightBlue
         viewControllers = controllers
     }
 }

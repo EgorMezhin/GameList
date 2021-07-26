@@ -24,6 +24,7 @@ final class InformationViewController: UIViewController {
     // MARK: - InformationViewController lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = AppColor.lightBlue
         setupView()
     }
 }

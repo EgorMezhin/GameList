@@ -11,6 +11,8 @@ class DetailedGameCell: UITableViewCell {
     let gameLogoView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "testGameLogoOne")
+        imageView.layer.cornerRadius = 8
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -57,6 +59,7 @@ extension DetailedGameCell {
         gameGenreLabel.text = genres
         dateLabel.text = releaseDate
     }
+    
     private func addSubviews() {
         contentView.addSubview(dateLabel)
         contentView.addSubview(gameLogoView)

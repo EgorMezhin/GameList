@@ -14,6 +14,8 @@ class SearchViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
+        tableView.separatorColor = AppColor.blue
         tableView.registerCell(from: SimpleGameCell.self)
         tableView.rowHeight = Constants.cellHeight
         return tableView
@@ -22,6 +24,7 @@ class SearchViewController: UIViewController {
         let searchBar = UISearchBar(frame: CGRect(x: 15, y: 100, width: 350, height: 50))
         searchBar.delegate = self
         searchBar.placeholder = Constants.searchPlaceholder
+        searchBar.compatibleSearchTextField.backgroundColor = AppColor.lightBlue
         definesPresentationContext = true
         return searchBar
     }()
@@ -39,6 +42,7 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = AppColor.lightBlue
         view.addSubview(searchTableView)
         view.addSubview(loadingView)
         searchTableView.tableHeaderView = searchBar

@@ -17,8 +17,8 @@ extension UIButton {
         case .bordered:
             setTitleColor(AppColor.white, for: .normal)
             titleLabel?.font = UIFont.systemFont(ofSize: 18)
-            layer.backgroundColor = AppColor.purple.cgColor
-            layer.cornerRadius = 8.0
+            layer.backgroundColor = AppColor.blue.cgColor
+            layer.cornerRadius = 8
             layer.masksToBounds = true
         }
     }

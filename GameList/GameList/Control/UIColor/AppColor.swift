@@ -8,8 +8,8 @@
 import UIKit
 
 struct AppColor {
-    static let teal = UIColor(red: 205/255, green: 240/255, blue: 234/255, alpha: 1)
-    static let white = UIColor(red: 249/255, green: 249/255, blue: 249/255, alpha: 1)
-    static let pink = UIColor(red: 247/255, green: 219/255, blue: 240/255, alpha: 1)
-    static let purple = UIColor(red: 190/255, green: 174/255, blue: 226/255, alpha: 1)
+    static let white = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)
+    static let lightBlue = UIColor(red: 232/255, green: 241/255, blue: 245/255, alpha: 1)
+    static let blue = UIColor(red: 0/255, green: 86/255, blue: 145/255, alpha: 1)
+    static let darkBlue = UIColor(red: 0/255, green: 74/255, blue: 124/255, alpha: 1)
 }

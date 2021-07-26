@@ -13,7 +13,8 @@ class GamesViewController: UIViewController {
     private lazy var releaseDates: [ReleaseDate] = []
     private lazy var gamesTableView: UITableView = {
         let tableView = UITableView()
-     //   tableView.separatorStyle = .none
+        tableView.tableFooterView = UIView()
+        tableView.separatorColor = AppColor.blue
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerCell(from: DetailedGameCell.self)
@@ -24,19 +25,16 @@ class GamesViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         gamesTableView.frame = view.bounds
-        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = AppColor.lightBlue
         view.addSubview(gamesTableView)
-
         fetchGames()
     }
 
     private func fetchGames() {
-
-
         let request = GameByRatingBodyRequest()
         networkManager
             .fetch(request: request,
@@ -54,45 +52,18 @@ class GamesViewController: UIViewController {
                         }
                     }
                    })
-
     }
 
     private func removeData() {
         guard games.isEmpty else {
             return
         }
-//        searchTableView.beginUpdates()
-//        searchTableView.deleteSections(IndexSet(integer: 0), with: .fade)
-//        searchTableView.endUpdates()
         gamesTableView.reloadData()
     }
 
     private func updateData() {
-//        searchTableView.beginUpdates()
-//        searchTableView.insertSections(IndexSet(integer: 0), with: .fade)
-//        searchTableView.endUpdates()
         gamesTableView.reloadData()
     }
-
-//    private func fetchGames() {
-//        let request = GameByRatingRequest()
-//        networkManager
-//            .fetch(request: request,
-//                   completion: { [weak self] (result: Result<GamesResponseBody>) in
-//                    DispatchQueue.main.async {
-//                        guard let self = self else { return }
-//                        switch result {
-//                        case .success(let body):
-//                            self.removeData()
-//                            self.games = body.games ?? []
-//                            self.updateData()
-//
-//                        case .failure(let error):
-//                            print(error)
-//                        }
-//                    }
-//                   })
-//    }
 }
 
 // MARK: - UITableViewDelegate
@@ -109,7 +80,6 @@ extension GamesViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 extension GamesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO:
         games.count
     }
 
