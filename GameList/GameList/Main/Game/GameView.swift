@@ -37,7 +37,7 @@ final class GameView: UIView {
         view.backgroundColor = .cyan
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 8
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -57,19 +57,23 @@ final class GameView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    private lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Компьютерная игра в жанре ролевого боевика, разработанная студией BioWare и выпущенная Microsoft Game Studios в 2007 году, первая часть серии Mass Effect."
-        label.font = label.font.withSize(18)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private lazy var descriptionLabel: UITextView = {
+        let textView = UITextView()
+        textView.text = "Компьютерная игра в жанре ролевого боевика, разработанная студией BioWare и выпущенная Microsoft Game Studios в 2007 году, первая часть серии Mass Effect."
+        textView.font = .systemFont(ofSize: 18)
+        textView.textColor = .black
+//        textView.layer.borderWidth = 1
+//        textView.layer.borderColor = AppColor.blue.cgColor
+      //  textView.numberOfLines = 0
+//        textView.lineBreakMode = .byWordWrapping
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
     }()
 
     // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
+        descriptionLabel.delegate = self
         configure()
     }
     required init?(coder: NSCoder) {
@@ -82,6 +86,10 @@ extension GameView {
     @objc private func didTapAddButton() {
         delegate?.didTapAddButton()
     }
+}
+
+extension GameView: UITextViewDelegate {
+
 }
 
 // MARK: - GameView configuration
@@ -122,6 +130,7 @@ extension GameView {
             descriptionLabel.leadingAnchor.constraint(equalTo: descriptionHeadingLabel.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: descriptionHeadingLabel.trailingAnchor),
             descriptionLabel.topAnchor.constraint(equalTo: descriptionHeadingLabel.bottomAnchor, constant: 10),
+            descriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10)
 
 
         ])
