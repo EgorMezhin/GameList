@@ -11,7 +11,6 @@ protocol Requestable {
     var body: String { get }
 }
 
-
 struct GameSearchBodyRequest: Requestable {
     let body: String
     init(text: String) {
@@ -37,6 +36,6 @@ struct GamesResponseBody: Responsable {
         let container = try decoder.singleValueContainer()
         let stringArray = try container.decode([Game].self)
         games = stringArray
-    
+
     }
 }

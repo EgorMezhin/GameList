@@ -33,11 +33,17 @@ class SearchViewController: UIViewController {
         return loadView
     }()
 
+    private var isLoading = false {
+        didSet {
+            loadingView.setLoading(isLoading)
+        }
+    }
+
     // MARK: - SearchViewController lifecycle methods
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         searchTableView.frame = view.bounds
-       // loadingView.frame = view.bounds
+        loadingView.frame = view.bounds
     }
 
     override func viewDidLoad() {
@@ -94,6 +100,7 @@ extension SearchViewController: UISearchResultsUpdating {
 // MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard !isLoading else { return false }
         guard let currentText = searchBar.text,
               let range = Range(range, in: currentText) else {
             return false
@@ -128,32 +135,23 @@ extension SearchViewController {
         )
     }
 
-    private func setLoading(_ isLoading: Bool) {
-        loadingView.isHidden = false
-    }
-
-    private func removeData() {
-        guard games.isEmpty else {
-            return
-        }
-        searchTableView.reloadData()
-    }
-
     private func updateData() {
-        searchTableView.reloadData()
+        searchTableView.beginUpdates()
+        searchTableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        searchTableView.endUpdates()
     }
 
     private func fetchGames(withText text: String) {
-
         let request = GameSearchBodyRequest(text: text)
+        self.isLoading = true
         networkManager
             .fetch(request: request,
                    completion: { [weak self] (result: Result<GamesResponseBody>) in
                     DispatchQueue.main.async {
                         guard let self = self else { return }
+                     //   self.isLoading = false
                         switch result {
                         case .success(let body):
-                            self.removeData()
                             self.games = body.games ?? []
                             self.updateData()
                         case .failure(let error):

@@ -22,17 +22,14 @@ struct Game: Codable {
         case releaseDates = "release_dates"
     }
 }
-
 struct Cover: Codable {
     let id: Int
     let url: String
 }
-
 struct ReleaseDate: Codable {
     let id: Int
     let human: String
 }
-
 struct Genre: Codable {
     let name: String
 }

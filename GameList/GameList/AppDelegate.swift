@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import MessageUI
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
