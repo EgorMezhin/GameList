@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 final class SettingsViewController: UIViewController {
     private lazy var settingsTableView: UITableView = {
@@ -14,6 +15,7 @@ final class SettingsViewController: UIViewController {
         tableView.separatorColor = AppColor.blue
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.isScrollEnabled = false
         tableView.registerCell(from: SettingsCell.self)
         return tableView
     }()
@@ -43,6 +45,8 @@ final class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+ //       self.navigationController?.navigationBar.backgroundColor = AppColor.lightBlue
         navigationController?.navigationBar.barTintColor = AppColor.lightBlue
         view.addSubview(settingsTableView)
     }

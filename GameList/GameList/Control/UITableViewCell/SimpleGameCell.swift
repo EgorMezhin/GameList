@@ -10,15 +10,22 @@ import UIKit
 class SimpleGameCell: UITableViewCell {
     private lazy var gameLogoView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "testGameLogoTwo")
+        imageView.backgroundColor = AppColor.lightBlue
         imageView.layer.cornerRadius = 8
         imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    private lazy var noImageLabel: UILabel = {
+        let label = UILabel()
+        label.text = "?"
+        label.textColor = AppColor.blue
+        label.font = .systemFont(ofSize: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     private lazy var gameNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Archlion Saga"
         label.font = .systemFont(ofSize: 20)
         label.lineBreakMode = .byTruncatingTail
         label.numberOfLines = 2
@@ -49,6 +56,7 @@ extension SimpleGameCell {
     private func addSubviews() {
         contentView.addSubview(gameLogoView)
         contentView.addSubview(gameNameLabel)
+        gameLogoView.addSubview(noImageLabel)
     }
 
     private func setConstraints() {
@@ -57,6 +65,9 @@ extension SimpleGameCell {
             gameLogoView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             gameLogoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             gameLogoView.widthAnchor.constraint(equalToConstant: 50),
+
+            noImageLabel.centerYAnchor.constraint(equalTo: gameLogoView.centerYAnchor),
+            noImageLabel.centerXAnchor.constraint(equalTo: gameLogoView.centerXAnchor),
 
             gameNameLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             gameNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

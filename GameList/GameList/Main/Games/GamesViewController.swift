@@ -29,6 +29,7 @@ class GamesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = AppColor.lightBlue
         view.addSubview(gamesTableView)
         fetchGames()

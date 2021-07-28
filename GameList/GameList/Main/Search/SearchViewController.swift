@@ -48,6 +48,7 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = AppColor.lightBlue
         view.addSubview(searchTableView)
         view.addSubview(loadingView)

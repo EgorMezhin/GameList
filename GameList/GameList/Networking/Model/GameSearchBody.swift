@@ -15,7 +15,7 @@ struct GameSearchBodyRequest: Requestable {
     let body: String
     init(text: String) {
         self.body = """
-                    fields name, release_dates.human, genres.name, cover.url; search "\(text)";
+                    fields name, release_dates.human, genres.name, cover.url; limit 50; search "\(text)";
                     """
     }
 }
