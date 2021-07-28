@@ -87,27 +87,31 @@ extension GamesViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(DetailedGameCell.self, indexPath: indexPath) else {
             return UITableViewCell()
         }
-        let coverString = games[indexPath.row].cover.url
-            let fullCoverString = "https:" + coverString
-            if let coverUrl = URL(string: fullCoverString) {
-                DispatchQueue.global().async {
-                    let data = try? Data(contentsOf: coverUrl)
-                    if let unwrappedData = data {
-                        DispatchQueue.main.async {
-                            if let unwrappedGenreArray = self.games[indexPath.row].genres,
-                               let unwrappedDateArray = self.games[indexPath.row].releaseDates {
-                                cell.configureCell(
-                                    title: self.games[indexPath.row].name,
-                                    image: UIImage(data: unwrappedData),
-                                    genres: unwrappedGenreArray[0].name,
-                                    releaseDate: unwrappedDateArray[0].human)
-                            }
+        if let cover = games[indexPath.row].cover {
+         //   let coverString = cover.url
+                let fullCoverString = "https:" + cover.url
+                if let coverUrl = URL(string: fullCoverString) {
+                    DispatchQueue.global().async {
+                        let data = try? Data(contentsOf: coverUrl)
+                        if let unwrappedData = data {
+                            DispatchQueue.main.async {
+                                if let unwrappedGenreArray = self.games[indexPath.row].genres,
+                                   let unwrappedDateArray = self.games[indexPath.row].releaseDates {
+                                    cell.configureCell(
+                                        title: self.games[indexPath.row].name,
+                                        image: UIImage(data: unwrappedData),
+                                        genres: unwrappedGenreArray[0].name,
+                                        releaseDate: unwrappedDateArray[0].human)
+                                }
 
+                            }
                         }
                     }
                 }
-            }
 
+
+
+        }
         return cell
     }
 }

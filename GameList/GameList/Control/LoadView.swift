@@ -27,9 +27,10 @@ class LoadView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3)
-        addSubview(containerView)
+    //    addSubview(containerView)
         containerView.addSubview(activity)
         activity.hidesWhenStopped = true
+        activity.color = .red
         isHidden = true
 
     }

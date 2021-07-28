@@ -9,7 +9,7 @@ import Foundation
 
 struct Game: Codable {
     let id: Int
-    let cover: Cover
+    let cover: Cover?
     let genres: [Genre]?
     let name: String
     let releaseDates: [ReleaseDate]?

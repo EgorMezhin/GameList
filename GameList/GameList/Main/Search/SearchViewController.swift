@@ -72,8 +72,9 @@ extension SearchViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(SimpleGameCell.self, indexPath: indexPath) else {
             return UITableViewCell()
         }
-         let coverString = games[indexPath.row].cover.url 
-            let fullCoverString = "https:" + coverString
+        if let cover = games[indexPath.row].cover {
+         //   let coverString = cover.url
+            let fullCoverString = "https:" + cover.url
             if let coverUrl = URL(string: fullCoverString) {
                 DispatchQueue.global().async {
                     let data = try? Data(contentsOf: coverUrl)
@@ -85,7 +86,19 @@ extension SearchViewController: UITableViewDataSource {
                     }
                 }
             }
-
+        } else {
+        //    let fullCoverString = "https:" + cover.url
+        //    if let coverUrl = URL(string: fullCoverString) {
+                DispatchQueue.global().async {
+              //      let data = try? Data(contentsOf: coverUrl)
+//                    if let unwrappedData = data {
+                        DispatchQueue.main.async {
+                            cell.configureCell(title: self.games[indexPath.row].name,
+                                               image: nil)
+//                       }
+                    }
+                }
+            }
         return cell
     }
 }
@@ -144,12 +157,13 @@ extension SearchViewController {
     private func fetchGames(withText text: String) {
         let request = GameSearchBodyRequest(text: text)
         self.isLoading = true
+        print(request)
         networkManager
             .fetch(request: request,
                    completion: { [weak self] (result: Result<GamesResponseBody>) in
                     DispatchQueue.main.async {
                         guard let self = self else { return }
-                     //   self.isLoading = false
+                        self.isLoading = false
                         switch result {
                         case .success(let body):
                             self.games = body.games ?? []
