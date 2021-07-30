@@ -149,7 +149,6 @@ extension SearchViewController {
     private func fetchGames(withText text: String) {
         let request = GameSearchBodyRequest(text: text)
         self.isLoading = true
-        print(request)
         networkManager
             .fetch(request: request,
                    completion: { [weak self] (result: Result<GamesResponseBody>) in
