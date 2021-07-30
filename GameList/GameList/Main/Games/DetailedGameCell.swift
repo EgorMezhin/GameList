@@ -10,7 +10,6 @@ import UIKit
 class DetailedGameCell: UITableViewCell {
     let gameLogoView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "testGameLogoOne")
         imageView.layer.cornerRadius = 8
         imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -18,24 +17,30 @@ class DetailedGameCell: UITableViewCell {
     }()
     lazy var gameNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Gothic"
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     lazy var gameGenreLabel: UILabel = {
         let label = UILabel()
-        label.text = "RPG, Action"
         label.font = label.font.withSize(18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     lazy var dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "15.03.2001"
         label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    private lazy var addButton: UIButton = {
+        let button = UIButton()
+        button.customize(withType: .bordered)
+        button.backgroundColor = AppColor.lightBlue
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
 
     // MARK: - Initialization
@@ -59,12 +64,13 @@ extension DetailedGameCell {
         gameGenreLabel.text = genres
         dateLabel.text = releaseDate
     }
-    
+
     private func addSubviews() {
         contentView.addSubview(dateLabel)
         contentView.addSubview(gameLogoView)
         contentView.addSubview(gameNameLabel)
         contentView.addSubview(gameGenreLabel)
+        contentView.addSubview(addButton)
     }
 
     private func setConstraints() {
@@ -76,7 +82,7 @@ extension DetailedGameCell {
 
             gameNameLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             gameNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            gameNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            gameNameLabel.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: -10),
 
             gameGenreLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             gameGenreLabel.topAnchor.constraint(equalTo: gameNameLabel.bottomAnchor, constant: 10),
@@ -84,7 +90,16 @@ extension DetailedGameCell {
 
             dateLabel.leadingAnchor.constraint(equalTo: gameLogoView.trailingAnchor, constant: 20),
             dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
-            dateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
+            dateLabel.trailingAnchor.constraint(equalTo: addButton.trailingAnchor, constant: -20),
+
+            addButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            addButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 25),
+            addButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -25),
+            addButton.widthAnchor.constraint(equalTo: addButton.heightAnchor)
         ])
+    }
+
+    @objc private func didTapAddButton() {
+        // delegate?.didTapAddButton()
     }
 }

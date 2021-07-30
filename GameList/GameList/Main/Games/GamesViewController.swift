@@ -8,6 +8,7 @@
 import UIKit
 
 class GamesViewController: UIViewController {
+    weak var delegate: GamesVCDelegate?
     private lazy var networkManager = NetworkManager()
     private lazy var games: Games = []
     private lazy var releaseDates: [ReleaseDate] = []
@@ -38,6 +39,10 @@ class GamesViewController: UIViewController {
 
         loadingView.frame = view.bounds
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchGames()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +50,6 @@ class GamesViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = AppColor.lightBlue
         view.addSubview(gamesTableView)
         view.addSubview(loadingView)
-        fetchGames()
     }
 
     private func fetchGames() {
@@ -77,7 +81,7 @@ class GamesViewController: UIViewController {
     }
 
     private func updateData() {
-            self.gamesTableView.reloadData()
+        self.gamesTableView.reloadData()
     }
 }
 
@@ -88,7 +92,6 @@ extension GamesViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showGameVC()
     }
 }
 
@@ -103,26 +106,25 @@ extension GamesViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         if let cover = games[indexPath.row].cover {
-         //   let coverString = cover.url
-                let fullCoverString = "https:" + cover.url
-                if let coverUrl = URL(string: fullCoverString) {
-                    DispatchQueue.global().async {
-                        let data = try? Data(contentsOf: coverUrl)
-                        if let unwrappedData = data {
-                            DispatchQueue.main.async {
-                                if let unwrappedGenreArray = self.games[indexPath.row].genres,
-                                   let unwrappedDateArray = self.games[indexPath.row].releaseDates {
-                                    cell.configureCell(
-                                        title: self.games[indexPath.row].name,
-                                        image: UIImage(data: unwrappedData),
-                                        genres: unwrappedGenreArray[0].name,
-                                        releaseDate: unwrappedDateArray[0].human)
-                                }
-
+            let fullCoverString = "https:" + cover.url
+            if let coverUrl = URL(string: fullCoverString) {
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: coverUrl)
+                    if let unwrappedData = data {
+                        DispatchQueue.main.async {
+                            if let unwrappedGenreArray = self.games[indexPath.row].genres,
+                               let unwrappedDateArray = self.games[indexPath.row].releaseDates {
+                                cell.configureCell(
+                                    title: self.games[indexPath.row].name,
+                                    image: UIImage(data: unwrappedData),
+                                    genres: unwrappedGenreArray[0].name,
+                                    releaseDate: unwrappedDateArray[0].human)
                             }
+
                         }
                     }
                 }
+            }
         }
         return cell
     }
@@ -137,4 +139,14 @@ extension GamesViewController {
             animated: true
         )
     }
+}
+
+extension GamesViewController {
+    func passData(gameName: String) {
+        delegate?.passData(gameName: games[0].name)
+    }
+}
+
+protocol GamesVCDelegate: AnyObject {
+    func passData(gameName: String)
 }

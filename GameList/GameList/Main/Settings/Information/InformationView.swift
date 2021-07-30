@@ -105,6 +105,24 @@ extension InformationView {
     }
 
     private func loadImage() {
-        photoView.downloaded(from: Title.photo.rawValue)
+        if let image = InformationView.cache.object(forKey: "image" as NSString) {
+            DispatchQueue.main.async { [weak self] in
+                self?.photoView.image = image
+            }
+        } else {
+            if let url = URL(string: Title.photo.rawValue) {
+                URLSession.shared.dataTask(with: url) { data, response, error in
+                    guard
+                        let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                        let data = data, error == nil,
+                        let image = UIImage(data: data)
+                    else { return }
+                    InformationView.cache.setObject(image, forKey: "image" as NSString)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.photoView.image = InformationView.cache.object(forKey: "image")
+                    }
+                }.resume()
+            }
+        }
     }
 }

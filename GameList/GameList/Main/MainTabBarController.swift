@@ -10,24 +10,24 @@ import UIKit
 class MainTabBarController: UITabBarController {
     private lazy var controllers = [
         UINavigationController(rootViewController: setupVC(
-            type: LibraryViewController(),
-            title: VCTitle.library.rawValue,
-            item: TabBarItems.library)
+                                type: LibraryViewController(),
+                                title: VCTitle.library.rawValue,
+                                item: TabBarItems.library)
         ),
         UINavigationController(rootViewController: setupVC(
-            type: GamesViewController(),
-            title: VCTitle.popular.rawValue,
-            item: TabBarItems.games)
+                                type: GamesViewController(),
+                                title: VCTitle.popular.rawValue,
+                                item: TabBarItems.games)
         ),
         UINavigationController(rootViewController: setupVC(
-            type: SearchViewController(),
-            title: VCTitle.search.rawValue,
-            item: TabBarItems.seacrh)
+                                type: SearchViewController(),
+                                title: VCTitle.search.rawValue,
+                                item: TabBarItems.seacrh)
         ),
         UINavigationController(rootViewController: setupVC(
-            type: SettingsViewController(),
-            title: VCTitle.settings.rawValue,
-            item: TabBarItems.settings)
+                                type: SettingsViewController(),
+                                title: VCTitle.settings.rawValue,
+                                item: TabBarItems.settings)
         )
     ]
 

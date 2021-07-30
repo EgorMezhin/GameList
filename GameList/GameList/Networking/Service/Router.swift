@@ -9,7 +9,6 @@ import Foundation
 
 class Router<EndPoint: EndPointType>: NetworkRouter {
     private var task: URLSessionTask?
-
     func request(_ route: EndPoint, completion: @escaping NetworkRouterCompletion) {
         let session = URLSession.shared
         do {
@@ -26,29 +25,31 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
         var request = URLRequest(
             url: route.baseURL.appendingPathComponent(route.path),
-                      cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-                      timeoutInterval: 10.0)
+            cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
+            timeoutInterval: 10.0)
         request.httpMethod = route.httpMethod.rawValue
         do {
             switch route.task {
             case .request:
                 request.setValue("application/json", forHTTPHeaderField: "Accept")
             case .requestParameters(
-                 let bodyParameters,
-                 let urlParameters):
+                    let bodyParameters,
+                    let urlParameters):
                 try self.configureParameters(
                     bodyParameters: bodyParameters,
                     urlParameters: urlParameters,
                     request: &request
                 )
             case .requestParametersAndHeaders(
-                    let bodyParameters,
-                    let urlParameters,
-                    let additionalHeaders
+                let bodyParameters,
+                let urlParameters,
+                let additionalHeaders
             ):
                 self.addAdditionalHeaders(additionalHeaders, request: &request)
-                try self.configureParameters(bodyParameters: bodyParameters, urlParameters: urlParameters, request: &request)
-
+                try self.configureParameters(
+                    bodyParameters: bodyParameters,
+                    urlParameters: urlParameters,
+                    request: &request)
             }
             return request
         } catch {
@@ -57,9 +58,9 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
     }
 
     fileprivate func configureParameters(
-                     bodyParameters: String?,
-                     urlParameters: Parameters?,
-                     request: inout URLRequest) throws {
+        bodyParameters: String?,
+        urlParameters: Parameters?,
+        request: inout URLRequest) throws {
         do {
             if let bodyParameters = bodyParameters {
                 try UTF8ParameterEncoder.encode(urlRequest: &request, with: bodyParameters)
@@ -75,9 +76,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             request.setValue(value, forHTTPHeaderField: key)
         }
     }
-
     func cancel() {
         self.task?.cancel()
     }
-
 }

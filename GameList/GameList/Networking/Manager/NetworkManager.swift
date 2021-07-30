@@ -26,25 +26,25 @@ struct NetworkManager {
                 completion(.failure(.failed))
                 return
             }
-             if let response = response as? HTTPURLResponse {
+            if let response = response as? HTTPURLResponse {
                 let result = self.handleNetworkResponse(response)
-                 switch result {
-                 case .success:
-                     guard let responseData = data else {
+                switch result {
+                case .success:
+                    guard let responseData = data else {
                         completion(.failure(.noData))
-                         return
-                     }
-                     do {
+                        return
+                    }
+                    do {
                         completion(.success(try decode(data: responseData)))
-                     } catch {
+                    } catch {
                         completion(.failure(.decodableError))
-                     }
-                 case .failure:
+                    }
+                case .failure:
                     completion(.failure(handleError(response)))
-                 }
-             }
-         }
-     }
+                }
+            }
+        }
+    }
 
     fileprivate func decode<R: Responsable>(data: Data) throws -> R {
         let response = try JSONDecoder().decode(R.self, from: data)

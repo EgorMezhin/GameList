@@ -14,7 +14,7 @@ class LibraryViewController: UIViewController {
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.separatorColor = AppColor.blue
-        tableView.registerCell(from: SimpleGameCell.self)
+        tableView.registerCell(from: LibraryGameCell.self)
         tableView.rowHeight = Constants.cellHeight
         return tableView
     }()
@@ -42,12 +42,11 @@ extension LibraryViewController: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 extension LibraryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO:
-        return 2
+        0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(SimpleGameCell.self, indexPath: indexPath) else {
+        guard let cell = tableView.dequeueReusableCell(LibraryGameCell.self, indexPath: indexPath) else {
             return UITableViewCell()
         }
         return cell

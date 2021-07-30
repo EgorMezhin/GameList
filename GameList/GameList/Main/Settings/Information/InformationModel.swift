@@ -4,6 +4,7 @@
 //
 //  Created by Egor Lass on 15.07.2021.
 //
+import UIKit
 
 extension InformationViewController {
     enum Website: String {
@@ -20,4 +21,5 @@ extension InformationView {
         case telegram = "Telegram"
         case photo = "https://basketball.businesschampions.ru/nox-data/teams/sap/players/mezhin_egor_2019-03-25.jpg"
     }
+    static var cache = NSCache<NSString, UIImage>()
 }

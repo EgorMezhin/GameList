@@ -1,13 +1,13 @@
 //
-//  SimpleGameCell.swift
+//  LibraryGameCell.swift
 //  GameList
 //
-//  Created by Egor Lass on 21.07.2021.
+//  Created by Egor Lass on 30.07.2021.
 //
 
 import UIKit
 
-class SimpleGameCell: UITableViewCell {
+class LibraryGameCell: UITableViewCell {
     private lazy var gameLogoView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = AppColor.lightBlue
@@ -36,7 +36,7 @@ class SimpleGameCell: UITableViewCell {
         let button = UIButton()
         button.customize(withType: .bordered)
         button.backgroundColor = AppColor.lightBlue
-        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.setImage(UIImage(systemName: "minus"), for: .normal)
         button.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -56,7 +56,7 @@ class SimpleGameCell: UITableViewCell {
 }
 
 // MARK: - SimpleGameCell configuration
-extension SimpleGameCell {
+extension LibraryGameCell {
     func configureCell(title: String, image: UIImage?) {
         gameLogoView.image = image
         gameNameLabel.text = title
@@ -91,5 +91,7 @@ extension SimpleGameCell {
     }
 
     @objc private func didTapAddButton() {
+        // delegate?.didTapAddButton()
     }
+
 }
