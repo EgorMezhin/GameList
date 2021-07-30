@@ -59,13 +59,13 @@ final class GameView: UIView {
     }()
     private lazy var descriptionLabel: UITextView = {
         let textView = UITextView()
-        textView.text = "Компьютерная игра в жанре ролевого боевика, разработанная студией BioWare и выпущенная Microsoft Game Studios в 2007 году, первая часть серии Mass Effect."
+        textView.text = """
+                        Компьютерная игра в жанре ролевого боевика, разработанная студией BioWare и
+                        выпущенная Microsoft Game Studios в 2007 году, первая часть серии
+                        Mass Effect.
+                        """
         textView.font = .systemFont(ofSize: 18)
         textView.textColor = .black
-//        textView.layer.borderWidth = 1
-//        textView.layer.borderColor = AppColor.blue.cgColor
-      //  textView.numberOfLines = 0
-//        textView.lineBreakMode = .byWordWrapping
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
@@ -89,7 +89,6 @@ extension GameView {
 }
 
 extension GameView: UITextViewDelegate {
-
 }
 
 // MARK: - GameView configuration
@@ -131,8 +130,6 @@ extension GameView {
             descriptionLabel.trailingAnchor.constraint(equalTo: descriptionHeadingLabel.trailingAnchor),
             descriptionLabel.topAnchor.constraint(equalTo: descriptionHeadingLabel.bottomAnchor, constant: 10),
             descriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10)
-
-
         ])
     }
 }

@@ -11,7 +11,6 @@ extension UIButton {
     enum CustomizeButtonType {
         case bordered
     }
-
     func customize(withType type: CustomizeButtonType) {
         switch type {
         case .bordered:

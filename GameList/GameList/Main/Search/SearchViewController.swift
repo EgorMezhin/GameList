@@ -32,7 +32,6 @@ class SearchViewController: UIViewController {
         let loadView = LoadView()
         return loadView
     }()
-
     private var isLoading = false {
         didSet {
             loadingView.setLoading(isLoading)
@@ -59,7 +58,6 @@ class SearchViewController: UIViewController {
 // MARK: - UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showGameVC()
     }
 }
 
@@ -74,7 +72,6 @@ extension SearchViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         if let cover = games[indexPath.row].cover {
-         //   let coverString = cover.url
             let fullCoverString = "https:" + cover.url
             if let coverUrl = URL(string: fullCoverString) {
                 DispatchQueue.global().async {
@@ -88,27 +85,21 @@ extension SearchViewController: UITableViewDataSource {
                 }
             }
         } else {
-        //    let fullCoverString = "https:" + cover.url
-        //    if let coverUrl = URL(string: fullCoverString) {
-                DispatchQueue.global().async {
-              //      let data = try? Data(contentsOf: coverUrl)
-//                    if let unwrappedData = data {
-                        DispatchQueue.main.async {
-                            cell.configureCell(title: self.games[indexPath.row].name,
-                                               image: nil)
-//                       }
-                    }
+            DispatchQueue.global().async {
+                DispatchQueue.main.async {
+                    cell.configureCell(title: self.games[indexPath.row].name,
+                                       image: nil)
                 }
             }
+        }
         return cell
     }
 }
 
 // MARK: - UISearchResultsUpdating
 extension SearchViewController: UISearchResultsUpdating {
-  func updateSearchResults(for searchController: UISearchController) {
-    // TODO:
-  }
+    func updateSearchResults(for searchController: UISearchController) {
+    }
 }
 
 // MARK: - UISearchBarDelegate
@@ -143,7 +134,6 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController {
     private func showGameVC() {
         let gameViewController = GameViewController()
-
         navigationController?.pushViewController(
             gameViewController,
             animated: true
@@ -169,16 +159,19 @@ extension SearchViewController {
                         switch result {
                         case .success(let body):
                             if body.games?.count == 0 {
-                                print("Nothing")
+                                self.popupAlert(
+                                    title: Constants.alertTitle,
+                                    message: Constants.alertMessage,
+                                    actionTitles: ["Ок"],
+                                    actions: [nil])
                             }
                             self.games = body.games ?? []
-
                             self.updateData()
                         case .failure(let error):
                             print(error)
                         }
-//                        print(result)
                     }
-                   })
+                   }
+            )
     }
 }

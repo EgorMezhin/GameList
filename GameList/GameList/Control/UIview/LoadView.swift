@@ -30,7 +30,6 @@ class LoadView: UIView {
         addSubview(activity)
         activity.hidesWhenStopped = true
         isHidden = true
-
     }
 
     required init?(coder: NSCoder) {
@@ -40,7 +39,6 @@ class LoadView: UIView {
 
 extension LoadView {
     func setLoading(_ isLoading: Bool) {
-
         if isLoading {
             self.isHidden = !isLoading
         }

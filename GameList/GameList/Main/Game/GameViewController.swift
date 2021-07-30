@@ -40,6 +40,5 @@ extension GameViewController {
 // MARK: - GameViewDelegateDelegate
 extension GameViewController: GameViewDelegate {
     func didTapAddButton() {
-        // TODO:
     }
 }
