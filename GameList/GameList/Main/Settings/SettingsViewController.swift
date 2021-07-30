@@ -28,7 +28,7 @@ final class SettingsViewController: UIViewController {
         SettingModel(
             text: SettingCellTitle.feedback.rawValue,
             image: nil,
-            selectionBlock: showFeedbackVC
+            selectionBlock: sendFeedback
         ),
         SettingModel(
             text: SettingCellTitle.apiInfo.rawValue,
@@ -45,9 +45,9 @@ final class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
- //       self.navigationController?.navigationBar.backgroundColor = AppColor.lightBlue
         navigationController?.navigationBar.barTintColor = AppColor.lightBlue
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .never
         view.addSubview(settingsTableView)
     }
 }
@@ -83,12 +83,14 @@ extension SettingsViewController: UITableViewDataSource {
 
 // MARK: - Cell methods
 extension SettingsViewController {
-    private func showFeedbackVC() {
-        let feedbackViewController = FeedbackViewController()
-        navigationController?.pushViewController(
-            feedbackViewController,
-            animated: true
-        )
+
+    /// - note: Потенциальная доработка
+    /// Вместо отправки сообщений telegarm-боту можно реализовать отправку сообщений на собсвенный бэкенд.
+    /// UI готов (FeedbackViewController), для коррректной работы необходимо подключение Firebase Realtime Database
+    private func sendFeedback() {
+        if let url = URL(string: Constants.feedbackUrl) {
+            UIApplication.shared.open(url)
+        }
     }
 
     private func showInformationVC() {
@@ -100,7 +102,7 @@ extension SettingsViewController {
     }
 
     private func showApiInfo() {
-        if let url = URL(string: Constants.apiURL) {
+        if let url = URL(string: Constants.apiUrl) {
             UIApplication.shared.open(url)
         }
     }

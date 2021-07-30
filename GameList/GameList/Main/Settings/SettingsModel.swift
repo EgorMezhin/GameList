@@ -15,7 +15,8 @@ extension SettingsViewController {
     }
 
     struct Constants {
-        static let apiURL = "https://www.igdb.com/api"
+        static let apiUrl = "https://www.igdb.com/api"
+        static let feedbackUrl = "https://t.me/GameListFeedbackBot"
         static let cellHeight: CGFloat = 50
     }
 

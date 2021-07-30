@@ -20,11 +20,23 @@ class GamesViewController: UIViewController {
         tableView.registerCell(from: DetailedGameCell.self)
         return tableView
     }()
+    private lazy var loadingView: LoadView = {
+        let loadView = LoadView()
+        return loadView
+    }()
+
+    private var isLoading = false {
+        didSet {
+            loadingView.setLoading(isLoading)
+        }
+    }
 
     // MARK: - GamesViewController lifecycle methods
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         gamesTableView.frame = view.bounds
+
+        loadingView.frame = view.bounds
     }
 
     override func viewDidLoad() {
@@ -32,22 +44,24 @@ class GamesViewController: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barTintColor = AppColor.lightBlue
         view.addSubview(gamesTableView)
+        view.addSubview(loadingView)
         fetchGames()
     }
 
     private func fetchGames() {
         let request = GameByRatingBodyRequest()
+        self.isLoading = true
         networkManager
             .fetch(request: request,
                    completion: { [weak self] (result: Result<GamesResponseBody>) in
                     DispatchQueue.main.async {
                         guard let self = self else { return }
+                        self.isLoading = false
                         switch result {
                         case .success(let body):
                             self.removeData()
                             self.games = body.games ?? []
                             self.updateData()
-                            print(self.games)
                         case .failure(let error):
                             print(error)
                         }
@@ -63,7 +77,7 @@ class GamesViewController: UIViewController {
     }
 
     private func updateData() {
-        gamesTableView.reloadData()
+            self.gamesTableView.reloadData()
     }
 }
 
@@ -109,9 +123,6 @@ extension GamesViewController: UITableViewDataSource {
                         }
                     }
                 }
-
-
-
         }
         return cell
     }

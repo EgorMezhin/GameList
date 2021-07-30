@@ -139,6 +139,7 @@
 		D0BA107D26AD8BD800BA1390 /* LoadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadView.swift; sourceTree = "<group>"; };
 		D0BA108226ADEFF800BA1390 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		D0BA10A426AF4BB000BA1390 /* UISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchBar.swift; sourceTree = "<group>"; };
+		D0ECBD5326B1872900B223FD /* GameList.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GameList.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +317,7 @@
 		D01470852689F5C600F0B690 /* GameList */ = {
 			isa = PBXGroup;
 			children = (
+				D0ECBD5326B1872900B223FD /* GameList.entitlements */,
 				D01470862689F5C600F0B690 /* AppDelegate.swift */,
 				D012CC4326A822BD002E3742 /* Main */,
 				D012CBBC26A31E6A002E3742 /* Networking */,
@@ -781,6 +783,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GameList/GameList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YKJ7WX469T;
 				INFOPLIST_FILE = "GameList/Supporting Files/Info.plist";
@@ -801,6 +804,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GameList/GameList.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YKJ7WX469T;
 				INFOPLIST_FILE = "GameList/Supporting Files/Info.plist";

@@ -18,5 +18,6 @@ extension InformationView {
         case job = "iOS разработчик"
         case github = "Github"
         case telegram = "Telegram"
+        case photo = "https://basketball.businesschampions.ru/nox-data/teams/sap/players/mezhin_egor_2019-03-25.jpg"
     }
 }

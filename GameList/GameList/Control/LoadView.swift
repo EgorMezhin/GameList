@@ -8,29 +8,26 @@
 import UIKit
 
 class LoadView: UIView {
-
-    let activity = UIActivityIndicatorView(style: .medium)
+    private lazy var activity = UIActivityIndicatorView(style: .medium)
     private lazy var containerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.8)
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        view.backgroundColor = AppColor.darkBlue
         view.layer.cornerRadius = 8.0
         return view
     }()
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        activity.center = center
         containerView.center = center
-        containerView.frame.size = CGSize(width: 50, height: 50)
+        activity.center = center
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3)
+        backgroundColor = AppColor.blue
         addSubview(containerView)
-        activity.color = .black
-        containerView.addSubview(activity)
-     //   activity.activityIndicatorViewStyle = .
-       // activity.startAnimating()
+        activity.color = .white
+        addSubview(activity)
         activity.hidesWhenStopped = true
         isHidden = true
 
@@ -48,7 +45,7 @@ extension LoadView {
             self.isHidden = !isLoading
         }
         isLoading ? activity.startAnimating() : activity.stopAnimating()
-        let alpha: CGFloat = isLoading ? 0.5 : 0.0
+        let alpha: CGFloat = isLoading ? 0.75 : 0.0
         UIView.animate(withDuration: 0.25,
                        animations: { [weak self] in
                         if let self = self {

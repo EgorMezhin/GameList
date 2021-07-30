@@ -25,10 +25,9 @@ final class InformationView: UIView {
     }()
     private lazy var photoView: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .cyan
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
+        view.backgroundColor = .white
         view.layer.cornerRadius = 8
+        view.clipsToBounds = true
         view.contentMode = .scaleAspectFit
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -55,6 +54,7 @@ final class InformationView: UIView {
         super.init(frame: frame)
         configureView()
     }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -65,6 +65,7 @@ extension InformationView {
     @objc private func didTapGithubButton() {
         delegate?.didTapGithubButton()
     }
+
     @objc private func didTapTelegramButton() {
         delegate?.didTapTelegramButton()
     }
@@ -73,6 +74,7 @@ extension InformationView {
 // MARK: - InformationView configuration
 extension InformationView {
     private func configureView() {
+        loadImage()
         addSubview(nameLabel)
         addSubview(developerLabel)
         addSubview(photoView)
@@ -100,5 +102,9 @@ extension InformationView {
             telegramButton.topAnchor.constraint(equalTo: githubButton.topAnchor),
             telegramButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+
+    private func loadImage() {
+        photoView.downloaded(from: Title.photo.rawValue)
     }
 }

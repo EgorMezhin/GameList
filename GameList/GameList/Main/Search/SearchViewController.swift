@@ -143,6 +143,7 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController {
     private func showGameVC() {
         let gameViewController = GameViewController()
+
         navigationController?.pushViewController(
             gameViewController,
             animated: true
@@ -167,11 +168,16 @@ extension SearchViewController {
                         self.isLoading = false
                         switch result {
                         case .success(let body):
+                            if body.games?.count == 0 {
+                                print("Nothing")
+                            }
                             self.games = body.games ?? []
+
                             self.updateData()
                         case .failure(let error):
                             print(error)
                         }
+//                        print(result)
                     }
                    })
     }

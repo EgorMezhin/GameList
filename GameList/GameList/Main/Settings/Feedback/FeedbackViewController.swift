@@ -39,6 +39,5 @@ extension FeedbackViewController {
 // MARK: - FeedbackViewDelegate
 extension FeedbackViewController: FeedbackViewDelegate {
     func didTapFeedbackButton() {
-        // TODO:
     }
 }
